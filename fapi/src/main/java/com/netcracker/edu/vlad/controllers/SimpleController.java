@@ -9,8 +9,8 @@ public class SimpleController {
     @RequestMapping(value = "/get-simple-object")
     SimpleObject getSimpleString()
     { SimpleObject simpleObject=new SimpleObject();
-        simpleObject.setId("1");
-        simpleObject.setName("name");
+        simpleObject.setId("17");
+        simpleObject.setName("Vlad");
         return simpleObject;
 
     }
