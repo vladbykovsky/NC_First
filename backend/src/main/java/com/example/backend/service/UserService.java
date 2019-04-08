@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface UserService {
 
-    List<User> findAll();
+    Iterable<User> findAll();
     User findByLogin(String login);
     User findByName(String name);
     User findByRoleId(int id);
