@@ -11,9 +11,6 @@ public interface UserService {
     User findByLogin(String login);
     User findByName(String name);
     User findByRoleId(int id);
-    Optional getUserByRoleId(int id);
-    Optional getUserById(int id);
-    List<User> getAllUser();
     User save(User user);
     void delete(int id);
 
