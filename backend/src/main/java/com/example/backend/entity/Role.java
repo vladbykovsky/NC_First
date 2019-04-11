@@ -9,7 +9,6 @@ import java.util.Objects;
 public class Role {
     private int roleId;
     private String name;
-    private Collection<User> usersByRoleId;
 
     @Id
     @Column(name = "role_id")

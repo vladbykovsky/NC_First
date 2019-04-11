@@ -11,28 +11,23 @@ import java.util.List;
 @Component
 public class UserServiceImpl implements UserService {
 
-    private UserRepository repository;
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
-    public UserServiceImpl(UserRepository repository){ this.repository = repository; }
+    public UserServiceImpl(UserRepository repository){ this.userRepository = repository; }
 
     @Override
-    public Iterable<User> findAll(){ return repository.findAll(); };
+    public List<User> findAll(){ return (List<User>) userRepository.findAll(); };
 
     @Override
-    public User findByLogin(String login){ return repository.findByLogin(login); };
-
-    @Override
-    public User findByName(String name){ return repository.findByName(name); };
-
-    @Override
-    public User findByRoleId(int id){ return repository.findByRoleId(id); };
+    public User findByLogin(String login){ return userRepository.findByLogin(login); };
 
     @Override
     public User save(User user) {
-        return repository.save(user);
+        return userRepository.save(user);
     };
 
     @Override
-    public void delete(int id){ repository.deleteById(id); };
+    public void delete(int id){ userRepository.deleteById(id); };
 }

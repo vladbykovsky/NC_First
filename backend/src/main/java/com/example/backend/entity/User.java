@@ -14,8 +14,6 @@ public class User {
     private String surname;
     private String email;
     private String address;
-    private Collection<BillingAccount> billingAccountsByUserId;
-    private Collection<Subscription> subscriptionsByUserId;
     private Role rolesByRoleId;
 
     @Id
@@ -105,24 +103,6 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hash(userId, login, password, name, surname, email, address);
-    }
-
-    @OneToMany(mappedBy = "usersByUserId")
-    public Collection<BillingAccount> getBillingAccountsByUserId() {
-        return billingAccountsByUserId;
-    }
-
-    public void setBillingAccountsByUserId(Collection<BillingAccount> billingAccountsByUserId) {
-        this.billingAccountsByUserId = billingAccountsByUserId;
-    }
-
-    @OneToMany(mappedBy = "usersByUserId")
-    public Collection<Subscription> getSubscriptionsByUserId() {
-        return subscriptionsByUserId;
-    }
-
-    public void setSubscriptionsByUserId(Collection<Subscription> subscriptionsByUserId) {
-        this.subscriptionsByUserId = subscriptionsByUserId;
     }
 
     @ManyToOne

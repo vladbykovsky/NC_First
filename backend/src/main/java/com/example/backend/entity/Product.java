@@ -14,7 +14,6 @@ public class Product {
     private String description;
     private String company;
     private BigDecimal price;
-    private Collection<Subscription> subscriptionsByProductId;
 
     @Id
     @Column(name = "product_id")
@@ -94,12 +93,4 @@ public class Product {
         return Objects.hash(productId, name, category, description, company, price);
     }
 
-    @OneToMany(mappedBy = "productsByProductId")
-    public Collection<Subscription> getSubscriptionsByProductId() {
-        return subscriptionsByProductId;
-    }
-
-    public void setSubscriptionsByProductId(Collection<Subscription> subscriptionsByProductId) {
-        this.subscriptionsByProductId = subscriptionsByProductId;
-    }
 }

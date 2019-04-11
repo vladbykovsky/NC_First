@@ -11,7 +11,6 @@ public class BillingAccount {
     private int billingId;
     private BigDecimal balance;
     private String cardType;
-    private Collection<Subscription> subscriptionsByBillingId;
 
     @Id
     @Column(name = "billing_id")
@@ -58,12 +57,4 @@ public class BillingAccount {
         return Objects.hash(billingId, balance, cardType);
     }
 
-    @OneToMany(mappedBy = "billingAcсountsByBillingId")
-    public Collection<Subscription> getSubscriptionsByBillingId() {
-        return subscriptionsByBillingId;
-    }
-
-    public void setSubscriptionsByBillingId(Collection<Subscription> subscriptionsByBillingId) {
-        this.subscriptionsByBillingId = subscriptionsByBillingId;
-    }
 }
