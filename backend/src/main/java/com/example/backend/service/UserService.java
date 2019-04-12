@@ -2,12 +2,14 @@ package com.example.backend.service;
 
 import com.example.backend.entity.User;
 
+import java.util.List;
+
 
 public interface UserService {
 
-    Iterable<User> findAll();
+    List<User> findAll();
     User findByLogin(String login);
-    User save(User user);
-    void delete(int id);
+    User saveUser(User user);
+    void deleteUser(int id);
 
 }

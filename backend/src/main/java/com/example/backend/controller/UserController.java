@@ -29,8 +29,10 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.POST)
     public User saveUser(@RequestBody User user) {
-        return userService.save(user);
+        return userService.saveUser(user);
     }
 
+    @RequestMapping(value = "/{id}" ,method = RequestMethod.DELETE)
+    public void deleteUser(@PathVariable(name = "id") Integer id) { userService.deleteUser(id); }
 
 }

@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class SimpleController {
 
     @RequestMapping(value = "/get-simple-object")
-    SimpleObject getSimpleString()
-    { SimpleObject simpleObject=new SimpleObject();
+    SimpleObject getSimpleString() {
+        SimpleObject simpleObject=new SimpleObject();
         simpleObject.setId("17");
         simpleObject.setName("Vlad");
         return simpleObject;
