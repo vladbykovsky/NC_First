@@ -5,37 +5,18 @@
     <tr>
       <th class="text-right">Id</th>
       <th>Название</th>
+      <th>Категория</th>
       <th>Описание</th>
-      <th>Версии</th>
+      <th>Компания</th>
       <th>Цена</th>
     </tr>
-    <tr>
-      <td class="text-right">1</td>
-      <td><a routerLink="/product">Office</a></td>
-      <td>описание</td>
-      <td>Пробная, стандарт, про</td>
-      <td>0-15-30</td>
-    </tr>
-    <tr>
-      <td class="text-right">2</td>
-      <td><a routerLink="/product">Windows</a></td>
-      <td>описание</td>
-      <td>Пробная, стандарт, про</td>
-      <td>0-15-30</td>
-    </tr>
-    <tr>
-      <td class="text-right">3</td>
-      <td><a routerLink="/product">Netflix</a></td>
-      <td>описание</td>
-      <td>Пробная, стандарт, про</td>
-      <td>0-15-30</td>
-    </tr>
-    <tr>
-      <td class="text-right">4</td>
-      <td><a routerLink="/product">Spotify</a></td>
-      <td>описание</td>
-      <td>Пробная, стандарт, про</td>
-      <td>0-15-30</td>
+    <tr *ngFor="let product of products">
+      <td class="text-right">{{product.productId}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.category}}</td>
+      <td>{{product.description}}</td>
+      <td>{{product.company}}</td>
+      <td>{{product.price}}</td>
     </tr>
     </tbody>
   </table>

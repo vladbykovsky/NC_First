@@ -6,15 +6,19 @@
 
       <th class="text-right">Id</th>
       <th>Логин</th>
+      <th>Имя</th>
+      <th>Фамилия</th>
       <th>Почта</th>
-      <th>Профиль</th>
+      <th>Адрес</th>
     </tr>
 
     <tr *ngFor="let user of users">
-      <td class="text-right">{{user.id}}</td>
-      <td>{{user.name}}</td>
-      <td>{{user.email}}</td>
+      <td class="text-right">{{user.userId}}</td>
       <td><a routerLink="/user">{{user.login}}</a></td>
+      <td>{{user.name}}</td>
+      <td>{{user.surname}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.address}}</td>
     </tr>
     </tbody>
   </table>

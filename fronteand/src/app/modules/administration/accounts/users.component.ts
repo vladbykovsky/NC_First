@@ -4,10 +4,10 @@ import {AccountService} from "./account.service";
 
 @Component({
   selector: 'app-accounts',
-  templateUrl: './accounts.component.html',
-  styleUrls: ['./accounts.component.css']
+  templateUrl: './users.component.html',
+  styleUrls: ['./users.component.css']
 })
-export class AccountsComponent implements OnInit {
+export class UsersComponent implements OnInit {
 
   public users: User[];
 

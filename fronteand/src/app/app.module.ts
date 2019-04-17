@@ -12,7 +12,7 @@ import { ProductComponent } from './modules/main/product/product.component';
 import { RegistrationComponent } from './modules/main/registration/registration.component';
 import { UserComponent } from './modules/administration/user/user.component';
 import { ProductsComponent } from './modules/administration/products/products.component';
-import { AccountsComponent } from './modules/administration/accounts/accounts.component';
+import { UsersComponent } from './modules/administration/accounts/users.component';
 import { BillingAccountComponent } from './modules/accounts/billing-account/billing-account.component';
 import { UserAccountComponent } from './modules/accounts/user-account/user-account.component';
 import { HeaderComponent } from './modules/header/header.component';
@@ -25,8 +25,8 @@ const appRoutes: Routes = [
   {path: 'product', component:ProductComponent},
   {path: 'user-account',component:UserAccountComponent},
   {path: 'billing-account',component:BillingAccountComponent},
-  {path: 'products',component:ProductsComponent},
-  {path: 'accounts',component:AccountsComponent},
+  {path: 'admin/products',component:ProductsComponent},
+  {path: 'admin/users',component:UsersComponent},
   {path: 'user',component:UserComponent}
 ]
 
@@ -39,7 +39,7 @@ const appRoutes: Routes = [
     RegistrationComponent,
     UserComponent,
     ProductsComponent,
-    AccountsComponent,
+    UsersComponent,
     BillingAccountComponent,
     UserAccountComponent,
     HeaderComponent

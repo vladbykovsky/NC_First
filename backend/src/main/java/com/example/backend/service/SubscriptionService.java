@@ -1,15 +1,16 @@
 package com.example.backend.service;
 
-import com.example.backend.entity.Product;
 import com.example.backend.entity.Subscription;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Optional;
+
 
 public interface SubscriptionService {
 
-    Subscription findById(int id);
+    Optional<Subscription> findById(int id);
     Subscription findByStatus(String status);
-    Subscription save(Subscription subscription);
+    Subscription saveSubscription(Subscription subscription);
     void delete(int id);
 
 }
