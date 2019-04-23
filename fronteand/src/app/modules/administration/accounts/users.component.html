@@ -14,7 +14,7 @@
 
     <tr *ngFor="let user of users">
       <td class="text-right">{{user.userId}}</td>
-      <td><a routerLink="/user">{{user.login}}</a></td>
+      <td><a [routerLink]="['/user-account/login/', user.login]">{{user.login}}</a></td>
       <td>{{user.name}}</td>
       <td>{{user.surname}}</td>
       <td>{{user.email}}</td>

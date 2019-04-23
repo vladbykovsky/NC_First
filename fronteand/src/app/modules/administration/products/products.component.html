@@ -12,7 +12,7 @@
     </tr>
     <tr *ngFor="let product of products">
       <td class="text-right">{{product.productId}}</td>
-      <td>{{product.name}}</td>
+      <td><a [routerLink]="['/product/', product.productId]">{{product.name}}</a></td>
       <td>{{product.category}}</td>
       <td>{{product.description}}</td>
       <td>{{product.company}}</td>

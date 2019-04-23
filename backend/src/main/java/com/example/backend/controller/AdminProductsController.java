@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/admin/products")
-public class ProductController {
+public class AdminProductsController {
 
     @Autowired
     private ProductService productService;
@@ -23,18 +23,8 @@ public class ProductController {
         return ResponseEntity.ok(product);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Product> getProductById(@PathVariable(name = "id") Integer id){
-        Optional<Product> product = productService.findById(id);
-        if (product.isPresent()){
-            return ResponseEntity.ok(product.get());
-        }else {
-            return  ResponseEntity.notFound().build();
-        }
-    }
-
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public List<Product> getAllUsers() {
+    public List<Product> getAllProducts() {
         return (List<Product>) productService.findAll();
     }
 

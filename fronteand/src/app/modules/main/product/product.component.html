@@ -1,18 +1,18 @@
 <div class="bg-myreg">
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-  <h1 class="display-4">Продукт</h1>
+  <h1 class="display-4">{{product.name}}</h1>
   <p class="lead">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
 </div>
 <div class="container">
   <div class="text-center">
     <div class="card mb-4 shadow-sm">
       <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Пробный</h4>
+        <h4 class="my-0 font-weight-normal">{{product.category}}</h4>
       </div>
       <div class="card-body">
-        <h1 class="card-title pricing-card-title">$0 <!-- <small class="text-muted">/ mo</small> --></h1>
+        <h1 class="card-title pricing-card-title">{{product.price}}$ <!-- <small class="text-muted">/ mo</small> --></h1>
         <ul class="list-unstyled mt-3 mb-4">
-          <li>Описание</li>
+          <li>{{product.description}}</li>
           <!-- <li>2 GB of storage</li>
           <li>Email support</li>
           <li>Help center access</li> -->
@@ -20,36 +20,36 @@
         <button type="button" class="btn btn-lg btn-dark">Подписаться</button>
       </div>
     </div>
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Стандарт</h4>
-      </div>
-      <div class="card-body">
-        <h1 class="card-title pricing-card-title">$15<!--  <small class="text-muted">/ mo</small> --></h1>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>Описание</li>
-          <!-- <li>2 GB of storage</li>
-          <li>Email support</li>
-          <li>Help center access</li> -->
-        </ul>
-        <button type="button" class="btn btn-lg btn-dark">Подписаться</button>
-      </div>
-    </div>
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Про</h4>
-      </div>
-      <div class="card-body">
-        <h1 class="card-title pricing-card-title">$29<!--  <small class="text-muted">/ mo</small> --></h1>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>Описание</li>
-          <!-- <li>2 GB of storage</li>
-          <li>Email support</li>
-          <li>Help center access</li> -->
-        </ul>
-        <button type="button" class="btn btn-lg btn-dark">Подписаться</button>
-      </div>
-    </div>
+    <!--<div class="card mb-4 shadow-sm">-->
+      <!--<div class="card-header">-->
+        <!--<h4 class="my-0 font-weight-normal">Стандарт</h4>-->
+      <!--</div>-->
+      <!--<div class="card-body">-->
+        <!--<h1 class="card-title pricing-card-title">$15&lt;!&ndash;  <small class="text-muted">/ mo</small> &ndash;&gt;</h1>-->
+        <!--<ul class="list-unstyled mt-3 mb-4">-->
+          <!--<li>Описание</li>-->
+          <!--&lt;!&ndash; <li>2 GB of storage</li>-->
+          <!--<li>Email support</li>-->
+          <!--<li>Help center access</li> &ndash;&gt;-->
+        <!--</ul>-->
+        <!--<button type="button" class="btn btn-lg btn-dark">Подписаться</button>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="card mb-4 shadow-sm">-->
+      <!--<div class="card-header">-->
+        <!--<h4 class="my-0 font-weight-normal">Про</h4>-->
+      <!--</div>-->
+      <!--<div class="card-body">-->
+        <!--<h1 class="card-title pricing-card-title">$29&lt;!&ndash;  <small class="text-muted">/ mo</small> &ndash;&gt;</h1>-->
+        <!--<ul class="list-unstyled mt-3 mb-4">-->
+          <!--<li>Описание</li>-->
+          <!--&lt;!&ndash; <li>2 GB of storage</li>-->
+          <!--<li>Email support</li>-->
+          <!--<li>Help center access</li> &ndash;&gt;-->
+        <!--</ul>-->
+        <!--<button type="button" class="btn btn-lg btn-dark">Подписаться</button>-->
+      <!--</div>-->
+    <!--</div>-->
   </div>
 
   <footer class="text-center my-reg-foot">

@@ -7,49 +7,59 @@
   <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
 </div>
 <div class="row">
-  <div class="col-md-6">
+  <div *ngFor="let product of products" class="col-md-6">
 
-    <div class="bg-product1 my-product1 text-center text-dark overflow-hidden">
+    <div *ngIf="product.productId == 1" class="bg-product1 my-product text-center text-dark overflow-hidden">
       <div class="my-3 py-3">
-        <h2 class="display-5">{{products[0].productName.toString()}}</h2>
-        <p class="lead">{{products[0].description.toString()}}</p>
+        <h2 class="display-5">{{product.name}}</h2>
+        <p class="lead">{{product.description}}</p>
         <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-        <a class="text-dark btn btn-outline-dark" href="#" routerLink="/product">Просмотреть</a>
+        <a class="text-dark btn btn-outline-dark" href="#" [routerLink]="['/product/', product.productId]">Просмотреть</a>
       </div>
       <!-- <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div> -->
     </div>
 
-    <div class="bg-product2 my-product1 text-center text-dark overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5">{{products[1].productName}}</h2>
-        <p class="lead">{{products[1].description}}</p>
-        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-        <a class="text-dark btn btn-outline-dark" href="#" routerLink="/product">Просмотреть</a>
-      </div>
-      <!-- <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div> -->
-    </div>
-
-  </div>
-  <div class="col-md-6">
-    <div class="bg-product2 my-product2 text-center text-dark overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5">{{products[3].productName}}</h2>
-        <p class="lead">{{products[3].description}}</p><p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-        <a class="text-dark btn btn-outline-dark" href="#" routerLink="/product">Просмотреть</a>
-      </div>
-      <!-- <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div> -->
-    </div>
-    <div class="bg-product1 my-product2 text-center text-dark overflow-hidden">
+    <div *ngIf="product.productId == 2" class="bg-product2 my-product text-center text-dark overflow-hidden">
       <div class="my-3 py-3">
-        <h2 class="display-5">{{products[4].productName}}</h2>
-        <p class="lead">{{products[4].description}}</p>
+        <h2 class="display-5">{{product.name}}</h2>
+        <p class="lead">{{product.description}}</p>
         <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-        <a class="text-dark btn btn-outline-dark" href="#" routerLink="/product">Просмотреть</a>
+        <a class="text-dark btn btn-outline-dark" href="#" [routerLink]="['/product/', product.productId]">Просмотреть</a>
       </div>
       <!-- <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div> -->
     </div>
+    <!--<div class="bg-product2 my-product1 text-center text-dark overflow-hidden">-->
+      <!--<div class="my-3 p-3">-->
+        <!--<h2 class="display-5">{{products[1].name}}</h2>-->
+        <!--<p class="lead">{{products[1].description}}</p>-->
+        <!--<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>-->
+        <!--<a class="text-dark btn btn-outline-dark" href="#" [routerLink]="['/product', products[1].productId]">Просмотреть</a>-->
+      <!--</div>-->
+      <!--&lt;!&ndash; <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div> &ndash;&gt;-->
+    <!--</div>-->
+
   </div>
+  <!--<div class="col-md-6">-->
+    <!--<div class="bg-product2 my-product2 text-center text-dark overflow-hidden">-->
+      <!--<div class="my-3 p-3">-->
+        <!--<h2 class="display-5">{{products[2].name}}</h2>-->
+        <!--<p class="lead">{{products[2].description}}</p><p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>-->
+        <!--<a class="text-dark btn btn-outline-dark" href="#" routerLink="/product">Просмотреть</a>-->
+      <!--</div>-->
+      <!--&lt;!&ndash; <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div> &ndash;&gt;-->
+    <!--</div>-->
+    <!--<div class="bg-product1 my-product2 text-center text-dark overflow-hidden">-->
+      <!--<div class="my-3 py-3">-->
+        <!--<h2 class="display-5">{{products[3].name}}</h2>-->
+        <!--<p class="lead">{{products[3].description}}</p>-->
+        <!--<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>-->
+        <!--<a class="text-dark btn btn-outline-dark" href="#" routerLink="/product">Просмотреть</a>-->
+      <!--</div>-->
+      <!--&lt;!&ndash; <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div> &ndash;&gt;-->
+    <!--</div>-->
+  <!--</div>-->
 </div>
+
 <footer class="container py-5">
   <div class="row">
     <div class="col-12 col-md">

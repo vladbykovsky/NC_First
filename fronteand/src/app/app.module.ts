@@ -16,14 +16,17 @@ import { UsersComponent } from './modules/administration/accounts/users.componen
 import { BillingAccountComponent } from './modules/accounts/billing-account/billing-account.component';
 import { UserAccountComponent } from './modules/accounts/user-account/user-account.component';
 import { HeaderComponent } from './modules/header/header.component';
+import { ProductLayoutComponent } from './modules/main/product-layout/product-layout.component';
+import { SubscriptionsComponent } from './modules/accounts/subscriptions/subscriptions.component';
 
 const appRoutes: Routes = [
   {path: '', component:HomeComponent},
   {path: 'header', component:HeaderComponent},
   {path: 'login', component:LoginComponent},
   {path: 'registration', component:RegistrationComponent},
-  {path: 'product', component:ProductComponent},
-  {path: 'user-account',component:UserAccountComponent},
+  {path: 'product/:id', component:ProductComponent},
+  {path: 'subscriptions', component:SubscriptionsComponent},
+  {path: 'user-account/login/:login',component:UserAccountComponent},
   {path: 'billing-account',component:BillingAccountComponent},
   {path: 'admin/products',component:ProductsComponent},
   {path: 'admin/users',component:UsersComponent},
@@ -42,7 +45,9 @@ const appRoutes: Routes = [
     UsersComponent,
     BillingAccountComponent,
     UserAccountComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProductLayoutComponent,
+    SubscriptionsComponent
   ],
   imports: [
     BrowserModule,

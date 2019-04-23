@@ -11,6 +11,7 @@ public class BillingAccount {
     private int billingId;
     private BigDecimal balance;
     private String cardType;
+    private int userId;
 
     @Id
     @Column(name = "billing_id")
@@ -40,6 +41,16 @@ public class BillingAccount {
 
     public void setCardType(String cardType) {
         this.cardType = cardType;
+    }
+
+    @Basic
+    @Column(name = "user_id")
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     @Override
