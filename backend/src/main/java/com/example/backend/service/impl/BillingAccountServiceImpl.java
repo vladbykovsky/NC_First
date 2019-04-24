@@ -29,6 +29,11 @@ public class BillingAccountServiceImpl implements BillingAccountService {
     }
 
     @Override
+    public Optional<BillingAccount> getBillingAccountByUserId(Integer id) {
+        return repository.findByUserId(id);
+    }
+
+    @Override
     public Iterable<BillingAccount> getAllBillingAccounts() {
         return repository.findAll();
     }

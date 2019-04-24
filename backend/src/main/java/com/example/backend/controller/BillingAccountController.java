@@ -28,6 +28,16 @@ public class BillingAccountController {
         }
     }
 
+    @RequestMapping(value = "/userId/{id}", method = RequestMethod.GET)
+    public ResponseEntity<BillingAccount> getBillingAccountByUserId(@PathVariable(name = "id") Integer id) {
+        Optional<BillingAccount> billingAccount = billingAccountService.getBillingAccountByUserId(id);
+        if (billingAccount.isPresent()) {
+            return ResponseEntity.ok(billingAccount.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @RequestMapping(value = "", method = RequestMethod.GET)
     public Iterable<BillingAccount> getAllBillingAccounts() {
         return billingAccountService.getAllBillingAccounts();

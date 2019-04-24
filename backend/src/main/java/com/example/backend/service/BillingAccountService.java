@@ -7,6 +7,7 @@ public interface BillingAccountService {
 
     BillingAccount saveBillingAccount(BillingAccount account);
     Optional<BillingAccount> getBillingAccountById(Integer id);
+    Optional<BillingAccount> getBillingAccountByUserId(Integer id);
     Iterable<BillingAccount> getAllBillingAccounts();
     void deleteBillingAccount(Integer id);
 
