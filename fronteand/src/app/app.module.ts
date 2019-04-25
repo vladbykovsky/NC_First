@@ -25,7 +25,7 @@ const appRoutes: Routes = [
   {path: 'login', component:LoginComponent},
   {path: 'registration', component:RegistrationComponent},
   {path: 'product/:id', component:ProductComponent},
-  {path: 'subscriptions', component:SubscriptionsComponent},
+  {path: 'subscriptions/userId/:id', component:SubscriptionsComponent},
   {path: 'user-account/login/:login',component:UserAccountComponent},
   {path: 'billing-account/userId/:id',component:BillingAccountComponent},
   {path: 'admin/products',component:ProductsComponent},

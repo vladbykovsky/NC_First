@@ -24,9 +24,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     }
 
     @Override
-    public Subscription findByStatus(String status) {
-        return subscriptionRepository.findByStatus(status);
-    }
+    public Optional<Subscription> findByUserId(int id) { return subscriptionRepository.findByUserId(id); }
 
     @Override
     public Subscription saveSubscription(Subscription subscription) {

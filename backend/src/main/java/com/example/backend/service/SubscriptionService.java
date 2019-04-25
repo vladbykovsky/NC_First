@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface SubscriptionService {
 
     Optional<Subscription> findById(int id);
-    Subscription findByStatus(String status);
+    Optional<Subscription> findByUserId(int id);
     Subscription saveSubscription(Subscription subscription);
     void delete(int id);
 

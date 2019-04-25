@@ -6,7 +6,7 @@
     <a *ngIf="adminFlag" class="p-2 btn btn-outline-dark" href="#" routerLink="admin/users">Пользователи</a>
     <a *ngIf="loginFlag" class="p-2 btn btn-outline-dark" href="#" routerLink="/user-account/login/vladis">Мой профиль</a>
     <a *ngIf="loginFlag" class="p-2 btn btn-outline-dark" href="#" routerLink="/billing-account/userId/1">Мой счет</a>
-    <a *ngIf="loginFlag" class="p-2 btn btn-outline-dark" href="#" routerLink="/subscriptions">Мои подписки</a>
+    <a *ngIf="loginFlag" class="p-2 btn btn-outline-dark" href="#" routerLink="/subscriptions/userId/1">Мои подписки</a>
     <a *ngIf="!adminFlag" class="p-2 btn btn-outline-dark" href="#" (click)="clickLogin()" routerLink="/login">Войти</a>
     <a *ngIf="!adminFlag" class="p-2 btn btn-outline-dark" href="#" routerLink="/registration">Регистрация</a>
     <button *ngIf="!adminFlag" (click)="clickAdmin()">Aдмин</button>

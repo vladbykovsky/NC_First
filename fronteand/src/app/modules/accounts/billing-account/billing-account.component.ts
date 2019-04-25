@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {BillingAccountService} from "./billing-account.service";
 import {ActivatedRoute} from "@angular/router";
 import {BillingAccount} from "./models/billing-account.model";
-import {UserAccount} from "../user-account/models/user-account.model";
 
 @Component({
   selector: 'app-billing-account',

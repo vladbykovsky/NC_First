@@ -10,20 +10,24 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/subscriptions")
+@RequestMapping("/api/subscription")
 public class SubscriptionController {
 
     @Autowired
     private SubscriptionService subscriptionService;
 
-    @RequestMapping(value = "/{status}", method = RequestMethod.GET)
-    public ResponseEntity<Subscription> getSubscriptionByStatus(@PathVariable(name = "status") String status) {
-        Subscription subscription = subscriptionService.findByStatus(status);
-        return ResponseEntity.ok(subscription);
+    @RequestMapping(value = "/userId/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Subscription> getSubscriptionByUserId(@PathVariable(name = "id") Integer id){
+        Optional<Subscription> subscription = subscriptionService.findByUserId(id);
+        if (subscription.isPresent()){
+            return ResponseEntity.ok(subscription.get());
+        }else {
+            return  ResponseEntity.notFound().build();
+        }
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Subscription> getProductById(@PathVariable(name = "id") Integer id){
+    public ResponseEntity<Subscription> getSubscriptionById(@PathVariable(name = "id") Integer id){
         Optional<Subscription> subscription = subscriptionService.findById(id);
         if (subscription.isPresent()){
             return ResponseEntity.ok(subscription.get());
