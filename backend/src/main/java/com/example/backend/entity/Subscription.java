@@ -9,8 +9,8 @@ public class Subscription {
     private int subscribeId;
     private String status;
     private int userId;
-    private int productId;
     private int billingId;
+    private Product product;
 
 
     @Id
@@ -44,16 +44,6 @@ public class Subscription {
     }
 
     @Basic
-    @Column(name = "product_id")
-    public int getProductId() {
-        return productId;
-    }
-
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
-
-    @Basic
     @Column(name = "billing_id")
     public int getBillingId() {
         return billingId;
@@ -70,13 +60,22 @@ public class Subscription {
         Subscription that = (Subscription) o;
         return subscribeId == that.subscribeId &&
                 userId == that.userId &&
-                productId == that.productId &&
                 billingId == that.billingId &&
                 Objects.equals(status, that.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(subscribeId, status, userId, productId, billingId);
+        return Objects.hash(subscribeId, status, userId, billingId);
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "product_id", referencedColumnName = "product_id", nullable = false)
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

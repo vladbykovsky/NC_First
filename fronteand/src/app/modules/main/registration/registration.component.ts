@@ -9,7 +9,7 @@ import {UserAccountService} from "../../accounts/user-account/user-account.servi
 })
 export class RegistrationComponent implements OnInit {
 
-  public editableBa: UserAccount = new UserAccount();
+  public userAccount: UserAccount = new UserAccount();
 
   constructor(
     private userAccountService: UserAccountService
@@ -19,8 +19,9 @@ export class RegistrationComponent implements OnInit {
   }
 
   public _addUserAccount(): void {
-    // this.editableBa = UserAccount.cloneBase(userAccount);
-     this.userAccountService.saveUserAccount(this.editableBa);
+    this.userAccountService.saveUserAccount(this.userAccount).subscribe(()=>{
+      console.log("asdadasd");
+    });
   }
 
 }

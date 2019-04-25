@@ -10,25 +10,27 @@
       <form class="needs-validation" novalidate="">
 
         <div class="mb-3">
-           <label for="firstName">Имя</label>
-           <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-           <div class="invalid-feedback">
+           <label>Имя</label>
+           <input class="form-control" name="name" [(ngModel)]="userAccount.name" required/>
+
+          <div class="invalid-feedback">
              Valid first name is required.
            </div>
         </div>
 
         <div class="mb-3">
-          <label for="lastName">Фамилия</label>
-          <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+          <label>Фамилия</label>
+          <input class="form-control" name="surname" [(ngModel)]="userAccount.surname" required/>
           <div class="invalid-feedback">
             Valid last name is required.
           </div>
         </div>
 
         <div class="mb-3">
-          <label for="username">Логин</label>
+          <label>Логин</label>
           <div class="input-group">
-            <input type="text" class="form-control" id="username" placeholder="Username" required="">
+            <input class="form-control" name="login" [(ngModel)]="userAccount.login"  required/>
+
             <div class="invalid-feedback" style="width: 100%;">
               Your username is required.
             </div>
@@ -36,100 +38,100 @@
         </div>
 
         <div class="mb-3">
-          <label for="email">Почта</label>
-          <input type="email" class="form-control" id="email" placeholder="you@example.com">
+          <label>Почта</label>
+          <input class="form-control" name="email" [(ngModel)]="userAccount.email" required/>
           <div class="invalid-feedback">
             Please enter a valid email address for shipping updates.
           </div>
         </div>
 
         <div class="mb-3">
-          <label for="address">Адрес</label>
-          <input type="text" class="form-control" id="address" required="">
+          <label>Адрес</label>
+          <input class="form-control" name="address" [(ngModel)]="userAccount.address" required/>
           <div class="invalid-feedback">
             Please enter your shipping address.
           </div>
         </div>
 
-        <div class="mb-3">
-           <label for="country">Страна</label>
-           <select class="custom-select d-block w-100" id="country" required="">
-             <option value="">Выберите</option>
-             <option>Беларусь</option>
-             <option>Россия</option>
-             <option>США</option>
-           </select>
-           <div class="invalid-feedback">
-             Please select a valid country.
-           </div>
-        </div>
+        <!--<div class="mb-3">-->
+           <!--<label for="country">Страна</label>-->
+           <!--<select class="custom-select d-block w-100" id="country" required="">-->
+             <!--<option value="">Выберите</option>-->
+             <!--<option>Беларусь</option>-->
+             <!--<option>Россия</option>-->
+             <!--<option>США</option>-->
+           <!--</select>-->
+           <!--<div class="invalid-feedback">-->
+             <!--Please select a valid country.-->
+           <!--</div>-->
+        <!--</div>-->
 
-        <div class="mb-3">
-           <label for="state">Город</label>
-           <select class="custom-select d-block w-100" id="state" required="">
-             <option value="">Выберите</option>
-             <option>Минск</option>
-             <option>Москва</option>
-             <option>Нью-Йорк</option>
-           </select>
-           <div class="invalid-feedback">
-              Please provide a valid state.
-           </div>
-        </div>
+        <!--<div class="mb-3">-->
+           <!--<label for="state">Город</label>-->
+           <!--<select class="custom-select d-block w-100" id="state" required="">-->
+             <!--<option value="">Выберите</option>-->
+             <!--<option>Минск</option>-->
+             <!--<option>Москва</option>-->
+             <!--<option>Нью-Йорк</option>-->
+           <!--</select>-->
+           <!--<div class="invalid-feedback">-->
+              <!--Please provide a valid state.-->
+           <!--</div>-->
+        <!--</div>-->
 
         <hr class="mb-4">
 
-        <h4 class="mb-3">Рассчетный счет</h4>
+        <!--<h4 class="mb-3">Рассчетный счет</h4>-->
 
-        <div class="d-block my-3">
-          <div class="custom-control custom-radio">
-            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
-            <label class="custom-control-label" for="credit">Кредитная карта</label>
-          </div>
-          <div class="custom-control custom-radio">
-            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
-            <label class="custom-control-label" for="debit">Дебитовая карта</label>
-          </div>
-          <div class="custom-control custom-radio">
-            <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
-            <label class="custom-control-label" for="paypal">PayPal</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="cc-name">Название</label>
-            <input type="text" class="form-control" id="cc-name" placeholder="" required="">
-            <small class="text-muted">Full name as displayed on card</small>
-            <div class="invalid-feedback">
-              Name on card is required
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="cc-number">Номер карты</label>
-            <input type="text" class="form-control" id="cc-number" placeholder="" required="">
-            <div class="invalid-feedback">
-              Credit card number is required
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-3 mb-3">
-            <label for="cc-expiration">Срок</label>
-            <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
-            <div class="invalid-feedback">
-              Expiration date required
-            </div>
-          </div>
-          <div class="col-md-3 mb-3">
-            <label for="cc-cvv">CVV</label>
-            <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
-            <div class="invalid-feedback">
-              Security code required
-            </div>
-          </div>
-        </div>
+        <!--<div class="d-block my-3">-->
+          <!--<div class="custom-control custom-radio">-->
+            <!--<input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">-->
+            <!--<label class="custom-control-label" for="credit">Кредитная карта</label>-->
+          <!--</div>-->
+          <!--<div class="custom-control custom-radio">-->
+            <!--<input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">-->
+            <!--<label class="custom-control-label" for="debit">Дебитовая карта</label>-->
+          <!--</div>-->
+          <!--<div class="custom-control custom-radio">-->
+            <!--<input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">-->
+            <!--<label class="custom-control-label" for="paypal">PayPal</label>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+          <!--<div class="col-md-6 mb-3">-->
+            <!--<label for="cc-name">Название</label>-->
+            <!--<input type="text" class="form-control" id="cc-name" placeholder="" required="">-->
+            <!--<small class="text-muted">Full name as displayed on card</small>-->
+            <!--<div class="invalid-feedback">-->
+              <!--Name on card is required-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="col-md-6 mb-3">-->
+            <!--<label for="cc-number">Номер карты</label>-->
+            <!--<input type="text" class="form-control" id="cc-number" placeholder="" required="">-->
+            <!--<div class="invalid-feedback">-->
+              <!--Credit card number is required-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+          <!--<div class="col-md-3 mb-3">-->
+            <!--<label for="cc-expiration">Срок</label>-->
+            <!--<input type="text" class="form-control" id="cc-expiration" placeholder="" required="">-->
+            <!--<div class="invalid-feedback">-->
+              <!--Expiration date required-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="col-md-3 mb-3">-->
+            <!--<label for="cc-cvv">CVV</label>-->
+            <!--<input type="text" class="form-control" id="cc-cvv" placeholder="" required="">-->
+            <!--<div class="invalid-feedback">-->
+              <!--Security code required-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
         <hr class="mb-4">
-        <button class="btn btn-dark btn-lg btn-block" type="submit">Зарегистрироваться</button>
+        <button class="btn btn-dark btn-lg btn-block" type="submit" (click)="_addUserAccount()">Зарегистрироваться</button>
       </form>
     </div>
   </div>

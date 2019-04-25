@@ -18,6 +18,7 @@ import { UserAccountComponent } from './modules/accounts/user-account/user-accou
 import { HeaderComponent } from './modules/header/header.component';
 import { ProductLayoutComponent } from './modules/main/product-layout/product-layout.component';
 import { SubscriptionsComponent } from './modules/accounts/subscriptions/subscriptions.component';
+import {FormsModule} from "@angular/forms";
 
 const appRoutes: Routes = [
   {path: '', component:HomeComponent},
@@ -53,7 +54,8 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
