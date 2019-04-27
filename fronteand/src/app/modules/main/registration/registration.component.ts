@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserAccount} from "../../accounts/user-account/models/user-account.model";
 import {UserAccountService} from "../../accounts/user-account/user-account.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-registration',
@@ -10,6 +11,7 @@ import {UserAccountService} from "../../accounts/user-account/user-account.servi
 export class RegistrationComponent implements OnInit {
 
   public userAccount: UserAccount = new UserAccount();
+  private subscriptions: Subscription[] = [];
 
   constructor(
     private userAccountService: UserAccountService
@@ -19,9 +21,9 @@ export class RegistrationComponent implements OnInit {
   }
 
   public _addUserAccount(): void {
-    this.userAccountService.saveUserAccount(this.userAccount).subscribe(()=>{
-      console.log("asdadasd");
-    });
+    this.subscriptions.push(this.userAccountService.saveUserAccount(this.userAccount).subscribe(()=>{
+      console.log("asda");
+    }));
   }
 
 }
