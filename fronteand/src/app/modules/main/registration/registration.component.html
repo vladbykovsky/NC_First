@@ -58,6 +58,15 @@
           </div>
         </div>
 
+        <div class="mb-3">
+          <label>Role</label>
+          <input class="form-control" name="roleId" [(ngModel)]="userAccount.rolesByRoleId.roleId" required/>
+
+          <div class="invalid-feedback">
+            Please enter your shipping address.
+          </div>
+        </div>
+
         <!--<div class="mb-3">-->
           <!--<label>Роль</label>-->
           <!--<input class="form-control" name="address" [(ngModel)]="userAccount.role" required/>-->
@@ -93,6 +102,20 @@
 
         <hr class="mb-4">
 
+        <div class="col-md-6">
+          <div class=" custom-radio">
+            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
+            <label class="custom-control-label" for="credit">Пользователь</label>
+          </div>
+          <div>
+          </div>
+        </div>
+        <div  class="col-md-6">
+          <div class=" custom-radio">
+            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
+            <label class="custom-control-label" for="debit">Компания</label>
+          </div>
+        </div>
         <!--<h4 class="mb-3">Рассчетный счет</h4>-->
 
         <!--<div class="d-block my-3">-->

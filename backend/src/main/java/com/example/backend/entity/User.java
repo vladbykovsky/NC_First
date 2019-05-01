@@ -14,7 +14,7 @@ public class User {
     private String surname;
     private String email;
     private String address;
-//    private Role rolesByRoleId;
+    private Role rolesByRoleId;
 
     @Id
     @Column(name = "user_id")
@@ -105,13 +105,13 @@ public class User {
         return Objects.hash(userId, login, password, name, surname, email, address);
     }
 
-//    @ManyToOne
-//    @JoinColumn(name = "role_id", referencedColumnName = "role_id", nullable = false)
-//    public Role getRolesByRoleId() {
-//        return rolesByRoleId;
-//    }
-//
-//    public void setRolesByRoleId(Role rolesByRoleId) {
-//        this.rolesByRoleId = rolesByRoleId;
-//    }
+    @ManyToOne
+    @JoinColumn(name = "role_id", referencedColumnName = "role_id", nullable = false)
+    public Role getRolesByRoleId() {
+        return rolesByRoleId;
+    }
+
+    public void setRolesByRoleId(Role rolesByRoleId) {
+        this.rolesByRoleId = rolesByRoleId;
+    }
 }

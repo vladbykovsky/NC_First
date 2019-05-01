@@ -19,6 +19,7 @@ import { HeaderComponent } from './modules/header/header.component';
 import { ProductLayoutComponent } from './modules/main/product-layout/product-layout.component';
 import { SubscriptionsComponent } from './modules/accounts/subscriptions/subscriptions.component';
 import {FormsModule} from "@angular/forms";
+import { RegistrationBillingAccountComponent } from './modules/main/registration-billing-account/registration-billing-account.component';
 
 const appRoutes: Routes = [
   {path: '', component:HomeComponent},
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
   {path: 'billing-account/userId/:id',component:BillingAccountComponent},
   {path: 'admin/products',component:ProductsComponent},
   {path: 'admin/users',component:UsersComponent},
-  {path: 'user',component:UserComponent}
+  {path: 'user',component:UserComponent},
+  {path: 'registrationBA', component:RegistrationBillingAccountComponent}
 ]
 
 @NgModule({
@@ -48,7 +50,8 @@ const appRoutes: Routes = [
     UserAccountComponent,
     HeaderComponent,
     ProductLayoutComponent,
-    SubscriptionsComponent
+    SubscriptionsComponent,
+    RegistrationBillingAccountComponent
   ],
   imports: [
     BrowserModule,

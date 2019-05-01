@@ -36,11 +36,14 @@
       {{userAccount.address}}
     </div>
 
-    <div class="col-md-6 my-data text-right">
+    <div class="col-md-4 my-data text-right">
       <button class="btn btn-dark" [routerLink]="['/billing-account/userId/', userAccount.userId]">Счет</button>
     </div>
-    <div class="col-md-6 my-data text-left">
+    <div class="col-md-4 my-data text-center">
       <button class="btn btn-dark" [routerLink]="['/subscriptions/userId/', userAccount.userId]">Подписки</button>
+    </div>
+    <div class="col-md-4 my-data text-left">
+      <button class="btn btn-dark" routerLink="/registrationBA">Новый кошелек</button>
     </div>
 
   </div>

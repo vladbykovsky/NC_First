@@ -2,7 +2,6 @@ package com.example.backend.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -14,6 +13,7 @@ public class Product {
     private String description;
     private String company;
     private BigDecimal price;
+    private User usersByOwnerId;
 
     @Id
     @Column(name = "product_id")
@@ -93,4 +93,9 @@ public class Product {
         return Objects.hash(productId, name, category, description, company, price);
     }
 
+    @ManyToOne
+    @JoinColumn(name = "owner_id", referencedColumnName = "user_id", nullable = false)
+    public User getUsersByOwnerId() { return usersByOwnerId; }
+
+    public void setUsersByOwnerId(User usersByOwnerId) { this.usersByOwnerId = usersByOwnerId; }
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {UserAccount} from "../../accounts/user-account/models/user-account.model";
+import {Role} from "../../accounts/user-account/models/role.model";
 import {UserAccountService} from "../../accounts/user-account/user-account.service";
 import {Subscription} from "rxjs";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-registration',
@@ -14,7 +16,8 @@ export class RegistrationComponent implements OnInit {
   private subscriptions: Subscription[] = [];
 
   constructor(
-    private userAccountService: UserAccountService
+    private userAccountService: UserAccountService,
+    public http: HttpClient
   ) { }
 
   ngOnInit() {
@@ -22,7 +25,8 @@ export class RegistrationComponent implements OnInit {
 
   public _addUserAccount(): void {
     this.subscriptions.push(this.userAccountService.saveUserAccount(this.userAccount).subscribe(()=>{
-      console.log("asda");
+      // this.userAccount = new UserAccount();
+
     }));
   }
 
