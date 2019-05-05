@@ -7,13 +7,15 @@ import java.util.Objects;
 @Table(name = "subscriptions", schema = "nc_test", catalog = "")
 public class Subscription {
     private int subscribeId;
+    private String dataStart;
+    private String dataEnd;
     private String status;
     private int userId;
     private int billingId;
     private Product product;
 
 
-    @Id
+    @Basic
     @Column(name = "subscribe_id")
     public int getSubscribeId() {
         return subscribeId;
@@ -21,6 +23,26 @@ public class Subscription {
 
     public void setSubscribeId(int subscribeId) {
         this.subscribeId = subscribeId;
+    }
+
+    @Basic
+    @Column(name = "data_start")
+    public String getDataStart() {
+        return dataStart;
+    }
+
+    public void setDataStart(String dataStart) {
+        this.dataStart = dataStart;
+    }
+
+    @Id
+    @Column(name = "data_end")
+    public String getDataEnd() {
+        return dataEnd;
+    }
+
+    public void setDataEnd(String dataEnd) {
+        this.dataEnd = dataEnd;
     }
 
     @Basic
@@ -61,12 +83,15 @@ public class Subscription {
         return subscribeId == that.subscribeId &&
                 userId == that.userId &&
                 billingId == that.billingId &&
-                Objects.equals(status, that.status);
+                Objects.equals(dataStart, that.dataStart) &&
+                Objects.equals(dataEnd, that.dataEnd) &&
+                Objects.equals(status, that.status) &&
+                Objects.equals(product, that.product);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(subscribeId, status, userId, billingId);
+        return Objects.hash(subscribeId, dataStart, dataEnd, status, userId, billingId, product);
     }
 
     @ManyToOne

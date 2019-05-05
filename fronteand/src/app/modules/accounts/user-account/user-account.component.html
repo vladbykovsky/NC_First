@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row" *ngIf="userAccount">
     <div class="col-12 text-center my-head"><h1>Мой профиль</h1><hr></div>
     <div class="col-md-6 my-data text-right">
       Логин:
@@ -41,6 +41,9 @@
     </div>
     <div class="col-md-4 my-data text-center">
       <button class="btn btn-dark" [routerLink]="['/subscriptions/userId/', userAccount.userId]">Подписки</button>
+    </div>
+    <div class="col-md-4 my-data text-center">
+      <button class="btn btn-dark"(click)="auth.logOut()" routerLink="/login">Выйти</button>
     </div>
     <div class="col-md-4 my-data text-left">
       <button class="btn btn-dark" routerLink="/registrationBA">Новый кошелек</button>

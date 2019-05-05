@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {UserAccount} from "./models/user-account.model";
 import {UserAccountService} from "./user-account.service";
 import {ActivatedRoute} from "@angular/router";
+import {HttpClient} from "@angular/common/http";
+import {TokenStorage} from "../../main/login/token.storage";
+import {AuthService} from "../../main/login/service/auth.service";
 
 @Component({
   selector: 'app-user-account',
@@ -14,7 +17,9 @@ export class UserAccountComponent implements OnInit {
 
   constructor(
     private userAccountService : UserAccountService,
-    private activateRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute,
+    private token: TokenStorage,
+    private auth: AuthService
   ) {}
 
   ngOnInit() {
@@ -24,5 +29,10 @@ export class UserAccountComponent implements OnInit {
       this.userAccount = value
     })
   }
+
+  signOut(): void{
+    this.token.signOut();
+  }
+
 
 }

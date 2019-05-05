@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { HomeComponent } from './modules/main/home/home.component';
 import { LoginComponent } from './modules/main/login/login.component';
 import { ProductComponent } from './modules/main/product/product.component';
@@ -20,6 +20,9 @@ import { ProductLayoutComponent } from './modules/main/product-layout/product-la
 import { SubscriptionsComponent } from './modules/accounts/subscriptions/subscriptions.component';
 import {FormsModule} from "@angular/forms";
 import { RegistrationBillingAccountComponent } from './modules/main/registration-billing-account/registration-billing-account.component';
+import {AuthService} from "./modules/main/login/service/auth.service";
+import {TokenStorage} from "./modules/main/login/token.storage";
+import {Interceptor} from "./app.interceptor";
 
 const appRoutes: Routes = [
   {path: '', component:HomeComponent},
@@ -60,7 +63,10 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthService, TokenStorage,
+    {provide: HTTP_INTERCEPTORS,
+     useClass: Interceptor,
+     multi : true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { } 

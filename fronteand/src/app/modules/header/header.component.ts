@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from "../main/login/service/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -10,6 +11,10 @@ export class HeaderComponent implements OnInit {
   adminFlag: boolean = false;
   loginFlag: boolean = false;
 
+  constructor(public auth: AuthService){
+
+  }
+
   clickAdmin(){
     this.adminFlag=!this.adminFlag;
   }
@@ -17,8 +22,6 @@ export class HeaderComponent implements OnInit {
   clickLogin(){
     this.loginFlag=!this.loginFlag;
   }
-
-  constructor() { }
 
   ngOnInit() {
   }
