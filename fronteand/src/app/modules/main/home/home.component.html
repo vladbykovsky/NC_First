@@ -2,6 +2,18 @@
   <div class="col-md-5 p-lg-5 mx-auto my-5">
     <h1 class="display-4 font-weight-normal">Simple Charging Service</h1>
     <p class="lead font-weight-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple’s marketing pages.</p>
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li *ngFor="let pages of totalPages; let i= index" class="page-item">
+          <a class="page-link" href="#" (click)="setPage(i)">{{i+1}}</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
+    <button (click)="setSize(1)">1</button>
+    <button (click)="setSize(2)">2</button>
+    <button (click)="setSize(4)">4</button>
   </div>
   <div class="product-device shadow-sm d-none d-md-block"></div>
   <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
@@ -58,6 +70,7 @@
     <!--</div>-->
   <!--</div>-->
 </div>
+
 
 <footer class="container py-5">
   <div class="row">

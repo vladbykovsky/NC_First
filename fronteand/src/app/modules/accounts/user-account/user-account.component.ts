@@ -31,6 +31,7 @@ export class UserAccountComponent implements OnInit {
   }
 
   signOut(): void{
+    this.auth.logOut();
     this.token.signOut();
   }
 

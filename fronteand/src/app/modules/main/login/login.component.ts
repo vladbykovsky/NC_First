@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser(): void {
+    // localStorage.setItem("user", JSON.stringify(this.user));
     this.authService.signIn(this.user);
 
     // this.authService.attemptAuth(this.login, this.password).subscribe(
