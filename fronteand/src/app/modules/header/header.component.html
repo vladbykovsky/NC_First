@@ -2,17 +2,15 @@
   <h5 class="my-0 mr-md-auto font-weight-normal">Simple Charging</h5>
   <nav class="my-2 my-md-0 mr-md-3">
     <a class="p-2 btn btn-outline-dark" href="#" routerLink="">Главная</a>
-    <a *ngIf="auth.user && auth.user.rolesByRoleId.name === 'admin'" class="p-2 btn btn-outline-dark" href="#" routerLink="admin/products">Продукты</a>
-    <a *ngIf="auth.user && auth.user.rolesByRoleId.name === 'admin'" class="p-2 btn btn-outline-dark" href="#" routerLink="admin/users">Пользователи</a>
-    <a *ngIf="auth.user && auth.user.rolesByRoleId.name === 'user'" class="p-2 btn btn-outline-dark" href="#" routerLink="/user-account/login/vladis">Мой профиль</a>
-    <a *ngIf="auth.user && auth.user.rolesByRoleId.name === 'user'" class="p-2 btn btn-outline-dark" href="#" routerLink="/billing-account/userId/1">Мой счет</a>
-    <a *ngIf="auth.user && auth.user.rolesByRoleId.name === 'user'" class="p-2 btn btn-outline-dark" href="#" routerLink="/subscriptions/userId/1">Мои подписки</a>
-    <a *ngIf="auth.user && auth.user.rolesByRoleId.name === 'admin'" class="p-2 btn btn-outline-dark" href="#" routerLink="/login">Войти</a>
-    <a *ngIf="auth.user && auth.user.rolesByRoleId.name === 'admin'" class="p-2 btn btn-outline-dark" href="#" routerLink="/registration">Регистрация</a>
-    <a *ngIf="auth.user && auth.user.rolesByRoleId.name === 'admin'" class="p-2 btn btn-outline-dark" href="#" routerLink="/registrationBA">Регистрация кошелька</a>
-    <!--<button *ngIf="!adminFlag" (click)="clickAdmin()">Aдмин</button>-->
-    <!--<button *ngIf="adminFlag"(click)="clickAdmin()">Пользователь</button>-->
-    <a *ngIf="!auth.user" class="p-2 btn btn-outline-dark" href="#" routerLink="/login">Войти</a>
-    <a *ngIf="!auth.user" class="p-2 btn btn-outline-dark" href="#" routerLink="/registration">Регистрация</a>
+    <a  class="p-2 btn btn-outline-dark" href="#" routerLink="admin/products">Продукты</a>
+    <a  class="p-2 btn btn-outline-dark" href="#" routerLink="admin/users">Пользователи</a>
+    <a  class="p-2 btn btn-outline-dark" href="#" routerLink="/user-account/login/vladis">Мой профиль</a>
+    <a  class="p-2 btn btn-outline-dark" href="#" routerLink="/billing-account/userId/1">Мой счет</a>
+    <a  class="p-2 btn btn-outline-dark" href="#" routerLink="/subscriptions/userId/1">Мои подписки</a>
+    <a  class="p-2 btn btn-outline-dark" href="#" routerLink="/login">Войти</a>
+    <a  class="p-2 btn btn-outline-dark" href="#" routerLink="/registration">Регистрация</a>
+    <a  class="p-2 btn btn-outline-dark" href="#" routerLink="/registrationBA">Регистрация кошелька</a>
+    <a  class="p-2 btn btn-outline-dark" href="#" routerLink="/login">Войти</a>
+    <a  class="p-2 btn btn-outline-dark" href="#" routerLink="/registration">Регистрация</a>
   </nav>
 </div>

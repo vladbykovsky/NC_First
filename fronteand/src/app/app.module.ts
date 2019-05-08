@@ -16,13 +16,13 @@ import { UsersComponent } from './modules/administration/accounts/users.componen
 import { BillingAccountComponent } from './modules/accounts/billing-account/billing-account.component';
 import { UserAccountComponent } from './modules/accounts/user-account/user-account.component';
 import { HeaderComponent } from './modules/header/header.component';
-import { ProductLayoutComponent } from './modules/main/product-layout/product-layout.component';
 import { SubscriptionsComponent } from './modules/accounts/subscriptions/subscriptions.component';
 import {FormsModule} from "@angular/forms";
 import { RegistrationBillingAccountComponent } from './modules/main/registration-billing-account/registration-billing-account.component';
 import {AuthService} from "./modules/main/login/service/auth.service";
 import {TokenStorage} from "./modules/main/login/token.storage";
 import {Interceptor} from "./app.interceptor";
+import { FooterComponent } from './modules/footer/footer.component';
 
 const appRoutes: Routes = [
   {path: '', component:HomeComponent},
@@ -52,9 +52,9 @@ const appRoutes: Routes = [
     BillingAccountComponent,
     UserAccountComponent,
     HeaderComponent,
-    ProductLayoutComponent,
     SubscriptionsComponent,
-    RegistrationBillingAccountComponent
+    RegistrationBillingAccountComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

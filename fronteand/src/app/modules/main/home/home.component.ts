@@ -19,10 +19,10 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loadAllProducts();
+    this.loadProducts();
   }
 
-  public loadAllProducts():void{
+  public loadProducts():void{
     this.homeService.getAllProducts(this.page, this.size).subscribe(data => {
       this.products = data['content'];
       this.totalPages = new Array<number>(data['totalPages']);
@@ -31,11 +31,11 @@ export class HomeComponent implements OnInit {
 
   public setPage(page: number):void{
     this.page = page;
-    this.loadAllProducts();
+    this.loadProducts();
   }
 
   public setSize(size: number):void{
     this.size = size;
-    this.loadAllProducts();
+    this.loadProducts();
   }
 }
