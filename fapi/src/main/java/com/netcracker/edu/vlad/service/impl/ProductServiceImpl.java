@@ -8,6 +8,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -21,6 +25,13 @@ public class ProductServiceImpl implements ProductService {
         return restTemplate.getForObject(backendServerUrl+"/api/admin/products?page=" + page
                         + "&size="+size, RestPageImpl.class);
 
+    }
+
+    @Override
+    public List<Product> findAll() {
+        RestTemplate restTemplate = new RestTemplate();
+        Product[] productsResponse = restTemplate.getForObject(backendServerUrl + "/api/admin/products", Product[].class);
+        return  productsResponse == null ? Collections.emptyList() : Arrays.asList(productsResponse);
     }
 
     @Override

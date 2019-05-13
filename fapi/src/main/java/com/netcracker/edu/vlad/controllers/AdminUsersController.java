@@ -25,6 +25,11 @@ public class AdminUsersController {
         return userService.findByLogin(login);
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void deleteUser(@PathVariable int id) {
+        userService.deleteUser(id);
+    }
+
 //    @RequestMapping(value="/signup", method = RequestMethod.POST, produces = "application/json")
 //    public User saveUser(@RequestBody User user){
 //        return userService.save(user);

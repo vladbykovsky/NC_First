@@ -15,10 +15,15 @@ public class HomeServiceImpl implements HomeService {
     private String backendServerUrl;
 
     @Override
-    public Page<Product> findAll(int page, int size) {
+    public Page<Product> findAll(int page, int size, String sort, String order) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(backendServerUrl+"/api?page=" + page
-                + "&size="+size, RestPageImpl.class);
+        return restTemplate.getForObject(backendServerUrl + "/api?page=" + page
+                + "&size=" + size + "&sort=" + sort + "&order=" + order, RestPageImpl.class);
     }
 
+    @Override
+    public Product findAllByName(String name) {
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.getForObject(backendServerUrl+"/api/search/"+name, Product.class);
+    }
 }

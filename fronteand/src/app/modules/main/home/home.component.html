@@ -2,74 +2,88 @@
   <div class="col-md-5 p-lg-5 mx-auto my-5">
     <h1 class="display-4 font-weight-normal">Simple Charging Service</h1>
     <p class="lead font-weight-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple’s marketing pages.</p>
-
-    <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-        <li *ngFor="let pages of totalPages; let i= index" class="page-item">
-          <a class="page-link" href="#" (click)="setPage(i)">{{i+1}}</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-      </ul>
-    </nav>
-    <button (click)="setSize(1)">1</button>
-    <button (click)="setSize(2)">2</button>
-    <button (click)="setSize(4)">4</button>
   </div>
   <div class="product-device shadow-sm d-none d-md-block"></div>
   <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
 </div>
-<div class="row">
-  <div *ngFor="let product of products" class="col-md-6">
-
-    <div *ngIf="product.productId % 2 == 0" class="bg-product1 my-product1 text-center text-dark overflow-hidden">
-      <div class="my-3 py-3">
-        <h2 class="display-5">{{product.name}}</h2>
-        <p class="lead">{{product.description}}</p>
-        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-        <a class="text-dark btn btn-outline-dark" href="#" [routerLink]="['/product/', product.productId]">Просмотреть</a>
-      </div>
-    </div>
-
-    <div *ngIf="product.productId % 2 != 0" class="bg-product1 my-product2 text-center text-dark overflow-hidden">
-      <div class="my-3 py-3">
-        <h2 class="display-5">{{product.name}}</h2>
-        <p class="lead">{{product.description}}</p>
-        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-        <a class="text-dark btn btn-outline-dark" href="#" [routerLink]="['/product/', product.productId]">Просмотреть</a>
-      </div>
-      <!-- <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div> -->
-    </div>
-    <!--<div class="bg-product2 my-product1 text-center text-dark overflow-hidden">-->
-      <!--<div class="my-3 p-3">-->
-        <!--<h2 class="display-5">{{products[1].name}}</h2>-->
-        <!--<p class="lead">{{products[1].description}}</p>-->
-        <!--<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>-->
-        <!--<a class="text-dark btn btn-outline-dark" href="#" [routerLink]="['/product', products[1].productId]">Просмотреть</a>-->
-      <!--</div>-->
-      <!--&lt;!&ndash; <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div> &ndash;&gt;-->
-    <!--</div>-->
-
+<div class="text-center" style="margin-left: auto; margin-right: auto; margin-bottom: 16px">
+  <a class="btn btn-outline-dark" href="#" (click)="rebootProduct()">Все продукты</a>
+</div>
+<div class="row my-search-filter">
+  <div class="col-md-4">
   </div>
-  <!--<div class="col-md-6">-->
-    <!--<div class="bg-product2 my-product2 text-center text-dark overflow-hidden">-->
-      <!--<div class="my-3 p-3">-->
-        <!--<h2 class="display-5">{{products[2].name}}</h2>-->
-        <!--<p class="lead">{{products[2].description}}</p><p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>-->
-        <!--<a class="text-dark btn btn-outline-dark" href="#" routerLink="/product">Просмотреть</a>-->
-      <!--</div>-->
-      <!--&lt;!&ndash; <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div> &ndash;&gt;-->
-    <!--</div>-->
-    <!--<div class="bg-product1 my-product2 text-center text-dark overflow-hidden">-->
-      <!--<div class="my-3 py-3">-->
-        <!--<h2 class="display-5">{{products[3].name}}</h2>-->
-        <!--<p class="lead">{{products[3].description}}</p>-->
-        <!--<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>-->
-        <!--<a class="text-dark btn btn-outline-dark" href="#" routerLink="/product">Просмотреть</a>-->
-      <!--</div>-->
-      <!--&lt;!&ndash; <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div> &ndash;&gt;-->
-    <!--</div>-->
-  <!--</div>-->
+  <div class="col-md-3">
+    <input class="form-control" type="text" placeholder="Search" aria-label="Search" [(ngModel)]="searchName">
+  </div>
+  <div class="col-md-1">
+    <a class="btn btn-outline-dark" href="#" (click)="searchProduct()">Поиск</a>
+  </div>
+  <div class="col-md-1">
+    <a class="btn btn-outline-dark" href="#" (click)="rebootProduct()">Сброс</a>
+  </div>
+  <div class="col-md-1">
+    <div class="dropdown">
+      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Показывать по
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#" (click)="setSort('name')">Имени</a>
+        <a class="dropdown-item" href="#" (click)="setSort('price')">Цене</a>
+        <a class="dropdown-item" href="#" (click)="setSort('productId')">По новизне</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1">
+    <div class="dropdown">
+      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Сортировать по
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a *ngIf="sort == 'price'" class="dropdown-item" href="#" (click)="setOrder('low')">Дешевле-Дороже</a>
+        <a *ngIf="sort == 'price'" class="dropdown-item" href="#" (click)="setOrder('high')">Дороже-Дешевле</a>
+
+        <a *ngIf="sort == 'name'" class="dropdown-item" href="#" (click)="setOrder('low')">А-Я</a>
+        <a *ngIf="sort == 'name'" class="dropdown-item" href="#" (click)="setOrder('high')">Я-А</a>
+
+        <a *ngIf="sort == 'productId'" class="dropdown-item" href="#" (click)="setOrder('low')">Старые-Новые</a>
+        <a *ngIf="sort == 'productId'" class="dropdown-item" href="#" (click)="setOrder('high')">Новые-Старые</a>
+      </div>
+    </div>
+  </div>
 </div>
 
-
-
+<div class="row">
+  <div *ngFor="let product of products" class="col-md-6">
+    <div class="bg-product1 my-product text-center text-dark overflow-hidden">
+      <div class="my-3 py-3">
+        <h2 class="display-5">{{product.name}}</h2>
+        <p class="lead">{{product.description}}</p>
+        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <p class="lead">{{product.price}}$</p>
+        <a class="btn btn-outline-dark" href="#" [routerLink]="['/product/', product.productId]">Просмотреть</a>
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="mb-4">
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <a class="text-dark btn">Страница</a>
+    <li class="page-item">
+      <a *ngIf="page!==0"  class="page-link" href="#"(click)="goPrev(page)">Пред.</a></li>
+    <li *ngFor="let pages of totalPages; let i = index" class="page-item">
+      <a class="page-link" href="#" (click)="goPage(i)">{{i+1}}</a></li>
+    <li *ngIf="page!==totalPages.length-1" class="page-item">
+      <a class="page-link" href="#" (click)="goNext(page)">След.</a></li>
+    <div class="dropdown" style="margin-left: 10px">
+      <button class="text-dark btn dropdown-toggle" type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Показывать по:
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#" (click)="setSize(1)">1</a>
+        <a class="dropdown-item" href="#" (click)="setSize(2)">2</a>
+        <a class="dropdown-item" href="#" (click)="setSize(4)">4</a>
+      </div>
+    </div>
+  </ul>
+</nav>

@@ -21,7 +21,19 @@ public class ProductServiceImpl implements ProductService {
     public ProductServiceImpl(ProductRepository repository){ this.productRepository = repository; }
 
     @Override
-    public Page<Product> findAll(Pageable pageable) { return productRepository.findAll(pageable); }
+    public Page<Product> findAll(Pageable pageable) {
+        return productRepository.findAll(pageable);
+    }
+
+    @Override
+    public List<Product> findAll() {
+        return (List<Product>) productRepository.findAll();
+    }
+
+    @Override
+    public Optional<Product> findAllByName(String name) {
+        return productRepository.findAllByName(name);
+    }
 
     @Override
     public Optional<Product> findById(int id) { return  productRepository.findById(id); }

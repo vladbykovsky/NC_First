@@ -9,6 +9,7 @@ import java.util.Optional;
 
 public interface ProductService {
     Page<Product> findAll(int page, int size);
+    List<Product> findAll();
     Product findById(int id);
     Product findByName(String name);
     Product saveProduct(Product product);

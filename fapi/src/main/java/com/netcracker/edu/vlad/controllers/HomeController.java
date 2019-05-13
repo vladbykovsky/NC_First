@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -22,12 +23,20 @@ public class HomeController {
     private HomeService homeService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public ResponseEntity<Page<Product>> getAllProducts(@RequestParam int page, @RequestParam int size){
-        Page<Product> products = homeService.findAll(page, size);
+    public ResponseEntity<Page<Product>> getAllProducts(@RequestParam int page,
+                                                        @RequestParam int size,
+                                                        @RequestParam String sort,
+                                                        @RequestParam String order){
+        Page<Product> products = homeService.findAll(page, size, sort, order);
         if (products.getContent() != null) {
             return ResponseEntity.ok(products);
         }else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @RequestMapping(value = "/search/{name}", method = RequestMethod.GET)
+    public Product getAllByName(@PathVariable(name = "name") String name){
+        return homeService.findAllByName(name);
     }
 }

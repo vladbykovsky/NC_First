@@ -20,8 +20,8 @@ public class AdminProductsController {
     private ProductService productService;
 
     @GetMapping
-    public Page<Product> getAllProducts(int page, int size){
-        return productService.findAll(page, size);
+    public List<Product> getAllProducts(){
+        return productService.findAll();
     }
 
     @GetMapping("/name/{name}")

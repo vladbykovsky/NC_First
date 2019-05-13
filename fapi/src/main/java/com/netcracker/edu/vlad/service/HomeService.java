@@ -7,5 +7,6 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 public interface HomeService {
-    Page<Product> findAll(int page, int size);
+    Page<Product> findAll(int page, int size, String sort, String order);
+    Product findAllByName(String name);
 }

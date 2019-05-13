@@ -20,8 +20,8 @@
       <td>{{user.surname}}</td>
       <td>{{user.email}}</td>
       <td>{{user.address}}</td>
-      <td><button type="button" class="btn btn-dark">Редактировать</button></td>
-      <td><button type="button" class="btn btn-danger">Удалить</button></td>
+      <td><button type="button" class="btn btn-dark" (click)="_updateUsers()">Редактировать</button></td>
+      <td><button type="button" class="btn btn-danger" (click)="_deleteUser(user.userId)">Удалить</button></td>
     </tr>
     </tbody>
   </table>
