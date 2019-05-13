@@ -46,9 +46,9 @@ public class AuthenticationController {
         return ResponseEntity.ok(new AuthToken(token));
     }
 
-    @RequestMapping(value = "/user", method = RequestMethod.GET)
-    public ResponseEntity<User> userAuth(Principal userInfo){
-        User user = userAccountService.findByLogin(userInfo.getName());
+    @RequestMapping(value = "/user/{name}", method = RequestMethod.GET)
+    public ResponseEntity<User> userAuth(@PathVariable String name){
+        User user = userAccountService.findByLogin(name);
         if(user != null){
             return ResponseEntity.ok(user);
         }else{

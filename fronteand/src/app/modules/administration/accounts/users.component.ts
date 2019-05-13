@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from "./models/user.model";
 import {AccountService} from "./account.service";
 import {Subscription} from "rxjs";
+import {UserAccount} from "../../accounts/user-account/models/user-account.model";
+import {User} from "./models/user.model";
 
 @Component({
   selector: 'app-accounts',
@@ -10,7 +11,7 @@ import {Subscription} from "rxjs";
 })
 export class UsersComponent implements OnInit {
 
-  public users: User[];
+  public users: UserAccount[];
   private subscriptions: Subscription[] = [];
 
   constructor(

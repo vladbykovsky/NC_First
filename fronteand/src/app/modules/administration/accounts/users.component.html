@@ -9,6 +9,7 @@
       <th>Фамилия</th>
       <th>Почта</th>
       <th>Адрес</th>
+      <th>Роль</th>
       <th>Редактировать</th>
       <th>Удалить</th>
     </tr>
@@ -20,6 +21,7 @@
       <td>{{user.surname}}</td>
       <td>{{user.email}}</td>
       <td>{{user.address}}</td>
+      <td>{{user.rolesByRoleId.name}}</td>
       <td><button type="button" class="btn btn-dark" (click)="_updateUsers()">Редактировать</button></td>
       <td><button type="button" class="btn btn-danger" (click)="_deleteUser(user.userId)">Удалить</button></td>
     </tr>

@@ -19,7 +19,7 @@ public class UserAccountController {
     @Autowired
     private UserAccountService userAccountService;
 
-    @PreAuthorize("hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
     public List<User> getAllUsers(){
         return userAccountService.findAll();
@@ -31,7 +31,7 @@ public class UserAccountController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<User> saveUser(@RequestBody User user /*todo server validation*/) {
+    public ResponseEntity<User> saveUser(@RequestBody User user) {
         if (user != null) {
             return ResponseEntity.ok(userAccountService.saveUser(user));
         }
