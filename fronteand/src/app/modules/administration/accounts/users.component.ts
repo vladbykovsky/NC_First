@@ -13,6 +13,7 @@ export class UsersComponent implements OnInit {
 
   public users: UserAccount[];
   private subscriptions: Subscription[] = [];
+  public editMode: boolean = false;
 
   constructor(
     private accountService: AccountService
@@ -22,9 +23,9 @@ export class UsersComponent implements OnInit {
     this.loadUsers();
   }
 
-  public _deleteUser(id: string): void {
+  public deleteUser(id: number): void {
     this.subscriptions.push(this.accountService.deleteUser(id).subscribe(()=>{
-      this._updateUsers();
+      this.updateUsers();
     }));
   }
 
@@ -34,8 +35,12 @@ export class UsersComponent implements OnInit {
     }));
   }
 
-  public _updateUsers(): void {
+  public updateUsers(): void {
     this.loadUsers();
+  }
+
+  public editUsers(): void{
+    this.editMode = true;
   }
 
 }

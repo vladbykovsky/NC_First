@@ -61,7 +61,7 @@ export class ProductComponent implements OnInit {
       this.newSubscription.dataStart = this.getStartDate();
       this.newSubscription.dataEnd = this.getEndDate();
       this.subscription.push(this.subscriptionService.saveSubscription(this.newSubscription).subscribe(()=> {
-        this.router.navigate(['/subscriptions/userId/' + this.auth.user.userId]);
+        this.router.navigate(['/subscriptions']);
       }));
     }
     else{

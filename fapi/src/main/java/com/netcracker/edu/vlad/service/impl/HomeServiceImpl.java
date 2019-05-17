@@ -22,8 +22,9 @@ public class HomeServiceImpl implements HomeService {
     }
 
     @Override
-    public Product findAllByName(String name) {
+    public Product findAllByNameStartWith(String name) {
         RestTemplate restTemplate = new RestTemplate();
         return restTemplate.getForObject(backendServerUrl+"/api/search/"+name, Product.class);
     }
+
 }

@@ -15,5 +15,6 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
     Page<Product> findAll(Pageable pageable);
     Optional<Product> findAllByName(String name);
     Product findByName(String name);
+    Optional<Product> findByNameStartingWith(String str);
 
 }

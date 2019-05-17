@@ -4,6 +4,7 @@ import {Role} from "../../accounts/user-account/models/role.model";
 import {UserAccountService} from "../../accounts/user-account/user-account.service";
 import {Subscription} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {AuthService} from "../login/service/auth.service";
 
 @Component({
   selector: 'app-registration',
@@ -17,7 +18,8 @@ export class RegistrationComponent implements OnInit {
 
   constructor(
     private userAccountService: UserAccountService,
-    public http: HttpClient
+    public http: HttpClient,
+    private auth: AuthService
   ) { }
 
   ngOnInit() {
@@ -28,6 +30,10 @@ export class RegistrationComponent implements OnInit {
       // this.userAccount = new UserAccount();
 
     }));
+  }
+
+  public setRole(role: string): void{
+    this.userAccount.rolesByRoleId.roleId = role;
   }
 
 }

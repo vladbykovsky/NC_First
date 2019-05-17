@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {BillingAccountService} from "./billing-account.service";
 import {ActivatedRoute} from "@angular/router";
 import {BillingAccount} from "./models/billing-account.model";
+import {AuthService} from "../../main/login/service/auth.service";
 
 @Component({
   selector: 'app-billing-account',
@@ -14,14 +15,14 @@ export class BillingAccountComponent implements OnInit {
 
   constructor(
     private billingAccountService: BillingAccountService,
-    private activateRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute,
+    private auth: AuthService
   ) { }
 
   ngOnInit() {
-    const id = this.activateRoute.snapshot.params['id'];
 
-    this.billingAccountService.getBillingByUserId(id).subscribe((value:BillingAccount) => {
-      this.billingAccount = value
+    this.billingAccountService.getBillingByUserId(this.auth.user.userId).subscribe((value:BillingAccount) => {
+      this.billingAccount = value;
     })
   }
 

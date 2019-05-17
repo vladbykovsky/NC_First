@@ -37,6 +37,6 @@ public class HomeController {
 
     @RequestMapping(value = "/search/{name}", method = RequestMethod.GET)
     public Product getAllByName(@PathVariable(name = "name") String name){
-        return homeService.findAllByName(name);
+        return homeService.findAllByNameStartWith(name);
     }
 }

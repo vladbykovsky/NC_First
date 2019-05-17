@@ -42,6 +42,11 @@ public class ProductServiceImpl implements ProductService {
     public Product findByName(String name) { return productRepository.findByName(name); }
 
     @Override
+    public Optional<Product> findByNameStartingWith(String str) {
+        return productRepository.findByNameStartingWith(str);
+    }
+
+    @Override
     public Product saveProduct(Product product) { return productRepository.save(product); }
 
     @Override

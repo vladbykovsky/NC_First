@@ -59,120 +59,25 @@
         </div>
 
         <div class="mb-3">
-          <label>Role</label>
-          <input class="form-control" name="roleId" [(ngModel)]="userAccount.rolesByRoleId.roleId" required/>
-
+          <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Роль
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" (click)="setRole('1')">Пользователь</a>
+              <a class="dropdown-item" (click)="setRole('3')">Админ</a>
+            </div>
+          </div>
           <div class="invalid-feedback">
             Please enter your shipping address.
           </div>
         </div>
 
-        <!--<div class="mb-3">-->
-          <!--<label>Роль</label>-->
-          <!--<input class="form-control" name="address" [(ngModel)]="userAccount.role" required/>-->
-          <!--<div class="invalid-feedback">-->
-            <!--Please enter your shipping address.-->
-          <!--</div>-->
-        <!--</div>-->
-        <!--<div class="mb-3">-->
-           <!--<label for="country">Страна</label>-->
-           <!--<select class="custom-select d-block w-100" id="country" required="">-->
-             <!--<option value="">Выберите</option>-->
-             <!--<option>Беларусь</option>-->
-             <!--<option>Россия</option>-->
-             <!--<option>США</option>-->
-           <!--</select>-->
-           <!--<div class="invalid-feedback">-->
-             <!--Please select a valid country.-->
-           <!--</div>-->
-        <!--</div>-->
-
-        <!--<div class="mb-3">-->
-           <!--<label for="state">Город</label>-->
-           <!--<select class="custom-select d-block w-100" id="state" required="">-->
-             <!--<option value="">Выберите</option>-->
-             <!--<option>Минск</option>-->
-             <!--<option>Москва</option>-->
-             <!--<option>Нью-Йорк</option>-->
-           <!--</select>-->
-           <!--<div class="invalid-feedback">-->
-              <!--Please provide a valid state.-->
-           <!--</div>-->
-        <!--</div>-->
-
         <hr class="mb-4">
-
-        <div class="col-md-6">
-          <div class=" custom-radio">
-            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
-            <label class="custom-control-label" for="credit">Пользователь</label>
-          </div>
-          <div>
-          </div>
-        </div>
-        <div  class="col-md-6">
-          <div class=" custom-radio">
-            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
-            <label class="custom-control-label" for="debit">Компания</label>
-          </div>
-        </div>
-        <!--<h4 class="mb-3">Рассчетный счет</h4>-->
-
-        <!--<div class="d-block my-3">-->
-          <!--<div class="custom-control custom-radio">-->
-            <!--<input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">-->
-            <!--<label class="custom-control-label" for="credit">Кредитная карта</label>-->
-          <!--</div>-->
-          <!--<div class="custom-control custom-radio">-->
-            <!--<input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">-->
-            <!--<label class="custom-control-label" for="debit">Дебитовая карта</label>-->
-          <!--</div>-->
-          <!--<div class="custom-control custom-radio">-->
-            <!--<input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">-->
-            <!--<label class="custom-control-label" for="paypal">PayPal</label>-->
-          <!--</div>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-          <!--<div class="col-md-6 mb-3">-->
-            <!--<label for="cc-name">Название</label>-->
-            <!--<input type="text" class="form-control" id="cc-name" placeholder="" required="">-->
-            <!--<small class="text-muted">Full name as displayed on card</small>-->
-            <!--<div class="invalid-feedback">-->
-              <!--Name on card is required-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="col-md-6 mb-3">-->
-            <!--<label for="cc-number">Номер карты</label>-->
-            <!--<input type="text" class="form-control" id="cc-number" placeholder="" required="">-->
-            <!--<div class="invalid-feedback">-->
-              <!--Credit card number is required-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-          <!--<div class="col-md-3 mb-3">-->
-            <!--<label for="cc-expiration">Срок</label>-->
-            <!--<input type="text" class="form-control" id="cc-expiration" placeholder="" required="">-->
-            <!--<div class="invalid-feedback">-->
-              <!--Expiration date required-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="col-md-3 mb-3">-->
-            <!--<label for="cc-cvv">CVV</label>-->
-            <!--<input type="text" class="form-control" id="cc-cvv" placeholder="" required="">-->
-            <!--<div class="invalid-feedback">-->
-              <!--Security code required-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-        <hr class="mb-4">
-        <button class="btn btn-dark btn-lg btn-block" type="submit" (click)="_addUserAccount()">Зарегистрироваться</button>
+      <button class="btn btn-dark btn-lg btn-block" type="submit" routerLink="" (click)="_addUserAccount()">Зарегистрироваться</button>
       </form>
     </div>
   </div>
 
-  <footer class="text-center my-reg-foot">
-    <p>© 2019 Simple Charging Service</p>
-  </footer>
 </div>
 </div>

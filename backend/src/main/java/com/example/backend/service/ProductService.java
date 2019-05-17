@@ -14,6 +14,7 @@ public interface ProductService {
     Optional<Product> findAllByName(String name);
     Optional<Product> findById(int id);
     Product findByName(String name);
+    Optional<Product> findByNameStartingWith(String str);
     Product saveProduct(Product product);
     void deleteProduct(int id);
 
