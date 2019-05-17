@@ -6,6 +6,7 @@ import com.example.backend.service.SubscriptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -25,6 +26,11 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 
     @Override
     public Optional<Subscription> findByUserId(int id) { return subscriptionRepository.findByUserId(id); }
+
+    @Override
+    public List<Subscription> getSubscriptionsByUserId(int id) {
+        return subscriptionRepository.getSubscriptionsByUserId(id);
+    }
 
     @Override
     public Subscription saveSubscription(Subscription subscription) {

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -16,15 +17,15 @@ public class SubscriptionController {
     @Autowired
     private SubscriptionService subscriptionService;
 
-    @RequestMapping(value = "/userId/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Subscription> getSubscriptionByUserId(@PathVariable(name = "id") Integer id){
-        Optional<Subscription> subscription = subscriptionService.findByUserId(id);
-        if (subscription.isPresent()){
-            return ResponseEntity.ok(subscription.get());
-        }else {
-            return  ResponseEntity.notFound().build();
-        }
-    }
+//    @RequestMapping(value = "/userId/{id}", method = RequestMethod.GET)
+//    public ResponseEntity<Subscription> getSubscriptionByUserId(@PathVariable(name = "id") Integer id){
+//        Optional<Subscription> subscription = subscriptionService.findByUserId(id);
+//        if (subscription.isPresent()){
+//            return ResponseEntity.ok(subscription.get());
+//        }else {
+//            return  ResponseEntity.notFound().build();
+//        }
+//    }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Subscription> getSubscriptionById(@PathVariable(name = "id") Integer id){
@@ -34,6 +35,11 @@ public class SubscriptionController {
         }else {
             return  ResponseEntity.notFound().build();
         }
+    }
+
+    @RequestMapping(value = "userId/{id}", method = RequestMethod.GET)
+    public List<Subscription> getSubscriptionsByUserId(@PathVariable(name = "id") Integer id) {
+        return subscriptionService.getSubscriptionsByUserId(id);
     }
 
     @RequestMapping(method = RequestMethod.POST)

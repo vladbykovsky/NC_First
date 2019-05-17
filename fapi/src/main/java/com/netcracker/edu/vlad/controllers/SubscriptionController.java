@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/subscription")
 public class SubscriptionController {
@@ -19,13 +21,12 @@ public class SubscriptionController {
     }
 
     @RequestMapping(value = "/userId/{id}")
-    public ResponseEntity<Subscription> getSubscriptionByUserId(@PathVariable String id) throws InterruptedException {
-        Integer subscriptionId = Integer.valueOf(id);
-        return ResponseEntity.ok(subscriptionService.getSubscriptionByUserId(subscriptionId));
+    public List<Subscription> getSubscriptionByUserId(@PathVariable Integer id) throws InterruptedException {
+        return subscriptionService.getSubscriptionsByUserId(id);
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Subscription> saveSubscription(@RequestBody Subscription subscription /*todo server validation*/) {
+    public ResponseEntity<Subscription> saveSubscription(@RequestBody Subscription subscription) {
         if (subscription != null) {
             return ResponseEntity.ok(subscriptionService.saveSubscription(subscription));
         }

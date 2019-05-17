@@ -13,48 +13,10 @@
         <h1 class="card-title pricing-card-title">{{product.price}}$ <!-- <small class="text-muted">/ mo</small> --></h1>
         <ul class="list-unstyled mt-3 mb-4">
           <li>{{product.description}}</li>
-          <!-- <li>2 GB of storage</li>
-          <li>Email support</li>
-          <li>Help center access</li> -->
         </ul>
-        <button type="button" class="btn btn-lg btn-dark">Подписаться</button>
+        <button type="button" class="btn btn-lg btn-dark" (click)="buyProduct(product.productId)">Подписаться</button>
       </div>
     </div>
-    <!--<div class="card mb-4 shadow-sm">-->
-      <!--<div class="card-header">-->
-        <!--<h4 class="my-0 font-weight-normal">Стандарт</h4>-->
-      <!--</div>-->
-      <!--<div class="card-body">-->
-        <!--<h1 class="card-title pricing-card-title">$15&lt;!&ndash;  <small class="text-muted">/ mo</small> &ndash;&gt;</h1>-->
-        <!--<ul class="list-unstyled mt-3 mb-4">-->
-          <!--<li>Описание</li>-->
-          <!--&lt;!&ndash; <li>2 GB of storage</li>-->
-          <!--<li>Email support</li>-->
-          <!--<li>Help center access</li> &ndash;&gt;-->
-        <!--</ul>-->
-        <!--<button type="button" class="btn btn-lg btn-dark">Подписаться</button>-->
-      <!--</div>-->
-    <!--</div>-->
-    <!--<div class="card mb-4 shadow-sm">-->
-      <!--<div class="card-header">-->
-        <!--<h4 class="my-0 font-weight-normal">Про</h4>-->
-      <!--</div>-->
-      <!--<div class="card-body">-->
-        <!--<h1 class="card-title pricing-card-title">$29&lt;!&ndash;  <small class="text-muted">/ mo</small> &ndash;&gt;</h1>-->
-        <!--<ul class="list-unstyled mt-3 mb-4">-->
-          <!--<li>Описание</li>-->
-          <!--&lt;!&ndash; <li>2 GB of storage</li>-->
-          <!--<li>Email support</li>-->
-          <!--<li>Help center access</li> &ndash;&gt;-->
-        <!--</ul>-->
-        <!--<button type="button" class="btn btn-lg btn-dark">Подписаться</button>-->
-      <!--</div>-->
-    <!--</div>-->
   </div>
-
-  <footer class="text-center my-reg-foot">
-    <hr class="mb-4">
-    <p>© 2019 Simple Charging Service</p>
-  </footer>
 </div>
 </div>

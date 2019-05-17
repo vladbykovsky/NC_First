@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 @Service
 public class SubscriptionServiceImpl implements SubscriptionService {
 
@@ -19,9 +23,11 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     }
 
     @Override
-    public Subscription getSubscriptionByUserId(int id) {
+    public List<Subscription> getSubscriptionsByUserId(int id) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(backendServerUrl + "/api/subscription/userId/" + id, Subscription.class);
+        Subscription[] subscriptionsResponse =
+                restTemplate.getForObject(backendServerUrl + "/api/subscription/userId/" + id, Subscription[].class);
+        return subscriptionsResponse == null ? Collections.emptyList() : Arrays.asList(subscriptionsResponse);
     }
 
     @Override
