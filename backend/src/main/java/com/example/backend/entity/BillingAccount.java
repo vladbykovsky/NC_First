@@ -9,7 +9,7 @@ import java.util.Objects;
 @Table(name = "billing_acсounts", schema = "nc_test", catalog = "")
 public class BillingAccount {
     private int billingId;
-    private BigDecimal balance;
+    private double balance;
     private String cardType;
     private int userId;
 
@@ -25,11 +25,11 @@ public class BillingAccount {
 
     @Basic
     @Column(name = "balance")
-    public BigDecimal getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(BigDecimal balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 

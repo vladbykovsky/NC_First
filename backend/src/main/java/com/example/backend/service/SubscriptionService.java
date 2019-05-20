@@ -9,6 +9,7 @@ import java.util.Optional;
 
 public interface SubscriptionService {
 
+    List<Subscription> findAll();
     Optional<Subscription> findById(int id);
     Optional<Subscription> findByUserId(int id);
     List<Subscription> getSubscriptionsByUserId(int id);

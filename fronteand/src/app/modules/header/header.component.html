@@ -14,7 +14,7 @@
        routerLink="/subscriptions">Мои подписки</a>
     <a *ngIf="!auth.user" class="p-2 btn btn-outline-dark" href="#" routerLink="/registration">Регистрация</a>
     <a *ngIf="!auth.user" class="p-2 btn btn-outline-dark" href="#" routerLink="/login">Войти</a>
-    <a *ngIf="auth.user" class="p-2 btn btn-outline-dark" href="#" (click)="auth.logOut()">Выйти</a>
+    <a *ngIf="auth.user" class="p-2 btn btn-outline-dark" href="#" routerLink="/login" (click)="auth.logOut()">Выйти</a>
     <!--<a  class="p-2 btn btn-outline-dark" href="#" routerLink="/registrationBA">Регистрация кошелька</a>-->
     <!--<a class="p-2 btn btn-outline-dark" href="#" routerLink="/login">Войти</a>-->
     <!--<a class="p-2 btn btn-outline-dark" href="#" routerLink="/registration">Регистрация</a>-->

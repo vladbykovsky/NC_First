@@ -27,6 +27,11 @@ public class SubscriptionController {
 //        }
 //    }
 
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    public List<Subscription> getAll(){
+        return subscriptionService.findAll();
+    }
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Subscription> getSubscriptionById(@PathVariable(name = "id") Integer id){
         Optional<Subscription> subscription = subscriptionService.findById(id);
@@ -48,7 +53,8 @@ public class SubscriptionController {
     }
 
     @RequestMapping(value = "/{id}" ,method = RequestMethod.DELETE)
-    public void deleteSubscription(@PathVariable(name = "id") int id) {
-        subscriptionService.delete(id); }
+    public void deleteSubscription(@PathVariable(name = "id") Integer id) {
+        subscriptionService.delete(id);
+    }
 
 }

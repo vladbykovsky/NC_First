@@ -20,6 +20,11 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     }
 
     @Override
+    public List<Subscription> findAll() {
+        return (List<Subscription>)subscriptionRepository.findAll();
+    }
+
+    @Override
     public Optional<Subscription> findById(int id) {
         return subscriptionRepository.findById(id);
     }

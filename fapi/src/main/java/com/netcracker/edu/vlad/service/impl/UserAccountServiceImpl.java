@@ -39,6 +39,7 @@ public class UserAccountServiceImpl implements UserAccountService, UserDetailsSe
 
     @Override
     public User saveUser(User user) {
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         RestTemplate restTemplate = new RestTemplate();
         return restTemplate.postForEntity(backendServerUrl + "/api/user-account", user, User.class).getBody();
     }

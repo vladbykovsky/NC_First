@@ -5,6 +5,7 @@ import {UserAccountService} from "../../accounts/user-account/user-account.servi
 import {Subscription} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {AuthService} from "../login/service/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-registration',
@@ -19,7 +20,8 @@ export class RegistrationComponent implements OnInit {
   constructor(
     private userAccountService: UserAccountService,
     public http: HttpClient,
-    private auth: AuthService
+    private auth: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -28,7 +30,7 @@ export class RegistrationComponent implements OnInit {
   public _addUserAccount(): void {
     this.subscriptions.push(this.userAccountService.saveUserAccount(this.userAccount).subscribe(()=>{
       // this.userAccount = new UserAccount();
-
+      this.router.navigate(['/login'])
     }));
   }
 

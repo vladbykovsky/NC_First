@@ -12,7 +12,7 @@ public class Product {
     private String category;
     private String description;
     private String company;
-    private BigDecimal price;
+    private double price;
     private User usersByOwnerId;
 
     @Id
@@ -67,11 +67,11 @@ public class Product {
 
     @Basic
     @Column(name = "price")
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

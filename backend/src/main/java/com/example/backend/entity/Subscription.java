@@ -15,7 +15,7 @@ public class Subscription {
     private Product product;
 
 
-    @Basic
+    @Id
     @Column(name = "subscribe_id")
     public int getSubscribeId() {
         return subscribeId;
@@ -35,7 +35,7 @@ public class Subscription {
         this.dataStart = dataStart;
     }
 
-    @Id
+    @Basic
     @Column(name = "data_end")
     public String getDataEnd() {
         return dataEnd;
