@@ -14,8 +14,14 @@
     <div class="col-md-12 text-center" style="padding-top: 10px">
       <h4>{{billingAccount.balance}}$</h4>
     </div>
-    <div class="col-md-12 text-center" style="padding-top: 10px">
-      <button class="btn btn-dark" type="submit">Пополнить</button>
+    <div *ngIf="editMode" class="col-md-12 text-center" style="padding-top: 10px">
+      <input class="form-control" style="width: 200px; margin-left: auto; margin-right: auto" name="balance" [(ngModel)]="balance" placeholder="Сумма">
     </div>
-  </div>
+    <div *ngIf="!editMode" class="col-md-12 text-center" style="padding-top: 10px">
+      <button class="btn btn-dark" type="submit" (click)="setEdit()">Пополнить</button>
+    </div>
+    <div *ngIf="editMode" class="col-md-12 text-center" style="padding-top: 10px">
+      <button class="btn btn-dark" type="submit" (click)="setBalance()">Зачислить</button>
+    </div>
+    </div>
 </div>

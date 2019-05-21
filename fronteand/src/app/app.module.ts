@@ -23,6 +23,7 @@ import {AuthService} from "./modules/main/login/service/auth.service";
 import {TokenStorage} from "./modules/main/login/token.storage";
 import {Interceptor} from "./app.interceptor";
 import { FooterComponent } from './modules/footer/footer.component';
+import { ErrorComponent } from './modules/error/error.component';
 
 const appRoutes: Routes = [
   {path: '', component:HomeComponent},
@@ -36,7 +37,9 @@ const appRoutes: Routes = [
   {path: 'admin/products',component:ProductsComponent},
   {path: 'admin/users',component:UsersComponent},
   {path: 'user',component:UserComponent},
-  {path: 'registrationBA', component:RegistrationBillingAccountComponent}
+  {path: 'registrationBA', component:RegistrationBillingAccountComponent},
+  {path: '**', component:ErrorComponent},
+  {path: 'error', component:ErrorComponent}
 ]
 
 @NgModule({
@@ -54,7 +57,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     SubscriptionsComponent,
     RegistrationBillingAccountComponent,
-    FooterComponent
+    FooterComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

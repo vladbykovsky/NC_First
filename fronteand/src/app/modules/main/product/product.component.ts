@@ -38,9 +38,16 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     const id = this.activateRoute.snapshot.params['id'];
-    this.productService.getProductsById(id).subscribe((value:Product) => {
-      this.product = value;
-    })
+    if(id <= 4){
+      this.productService.getProductsById(id).subscribe((value:Product) => {
+        this.product = value;
+      }, error => {
+        this.router.navigate(['error']);
+      })
+    }else {
+      this.router.navigate(['error']);
+    }
+
 
   }
 
