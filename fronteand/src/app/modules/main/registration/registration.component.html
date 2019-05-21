@@ -4,77 +4,59 @@
     <h2>Регистрация</h2>
   </div>
 
-  <div class="row">
+  <div class="row" style="padding-bottom: 50px">
     <div class="col-md-12 order-md-1">
       <h4 class="mb-3">Ваши данные</h4>
       <form class="needs-validation" novalidate="">
 
         <div class="mb-3">
            <label>Имя</label>
-           <input class="form-control" name="name" [(ngModel)]="userAccount.name" required/>
-
-          <div class="invalid-feedback">
-             Valid first name is required.
-           </div>
+           <input class="form-control" name="name" [(ngModel)]="userAccount.name" #name="ngModel" required/>
+           <p [hidden]="name.valid || name.untouched" class="text-danger">Неверное имя</p>
         </div>
 
         <div class="mb-3">
           <label>Фамилия</label>
-          <input class="form-control" name="surname" [(ngModel)]="userAccount.surname" required/>
-          <div class="invalid-feedback">
-            Valid last name is required.
-          </div>
+          <input class="form-control" name="surname" [(ngModel)]="userAccount.surname" #surname="ngModel" required/>
+          <p [hidden]="surname.valid || surname.untouched" class="text-danger">Неверная фамилия</p>
         </div>
 
         <div class="mb-3">
-          <label>Логин</label>
-          <input class="form-control" name="login" [(ngModel)]="userAccount.login"  required/>
-          <div class="invalid-feedback" style="width: 100%;">
-            Your username is required.
-          </div>
+          <label>Логин(мин. 4 символа)</label>
+          <input class="form-control" name="login" [(ngModel)]="userAccount.login" #login="ngModel" required minlength="4">
+          <p [hidden]="login.valid || login.untouched" class="text-danger">Неверный логин</p>
         </div>
 
         <div class="mb-3">
-          <label>Пароль</label>
-          <input class="form-control" name="password" [(ngModel)]="userAccount.password"  required/>
-          <div class="invalid-feedback" style="width: 100%;">
-            Your username is required.
-          </div>
+          <label>Пароль(мин. 6 символов)</label>
+          <input class="form-control" name="password" type="password" [(ngModel)]="userAccount.password" #password="ngModel" required minlength="6">
+          <p [hidden]="password.valid || password.untouched" class="text-danger">Неверный пароль</p>
         </div>
 
         <div class="mb-3">
           <label>Почта</label>
-          <input class="form-control" name="email" [(ngModel)]="userAccount.email" required/>
-          <div class="invalid-feedback">
-            Please enter a valid email address for shipping updates.
-          </div>
+          <input class="form-control" name="email" [(ngModel)]="userAccount.email" #email="ngModel"
+                 required pattern="[a-zA-Z0-9_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,4}"/>
+          <p [hidden]="email.valid || email.untouched" class="text-danger">Неверный email</p>
         </div>
 
         <div class="mb-3">
-          <label>Адрес</label>
-          <input class="form-control" name="address" [(ngModel)]="userAccount.address" required/>
-          <div class="invalid-feedback">
-            Please enter your shipping address.
-          </div>
+          <label>Город</label>
+          <input class="form-control" name="address" [(ngModel)]="userAccount.address" #address="ngModel" required minlength="4">
+          <p [hidden]="address.valid || address.untouched" class="text-danger">Неверный адрес</p>
+        </div>
+        <div>
+          <label>Роль</label>
+          <select class="form-control">
+            <option>Пользователь</option>
+            <option (click)="setRole('3')">Админ</option>
+          </select>
         </div>
 
-        <div class="mb-3">
-          <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Роль
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" (click)="setRole('1')">Пользователь</a>
-              <a class="dropdown-item" (click)="setRole('3')">Админ</a>
-            </div>
-          </div>
-          <div class="invalid-feedback">
-            Please enter your shipping address.
-          </div>
-        </div>
 
         <hr class="mb-4">
-      <button class="btn btn-dark btn-lg btn-block" type="submit" routerLink="" (click)="_addUserAccount()">Зарегистрироваться</button>
+      <button class="btn btn-dark btn-lg btn-block" type="submit" routerLink=""
+              [disabled]="name.invalid || surname.invalid || password.invalid || email.invalid || login.invalid || address.invalid" (click)="_addUserAccount()">Зарегистрироваться</button>
       </form>
     </div>
   </div>

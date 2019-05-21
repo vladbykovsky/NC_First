@@ -48,13 +48,16 @@ export class ProductComponent implements OnInit {
       this.router.navigate(['error']);
     }
 
-
+    this.billingAccountService.getBillingByUserId(this.auth.user.userId).subscribe(value => {
+      this.billingId = value.billingId;
+    })
   }
 
 
   // public getBillingId():void{
   //   this.billingAccountService.getBillingByUserId(this.auth.user.userId).subscribe(value => {
-  //     this.newSubscription.billingId = value.billingId;
+  //     this.billingId = value.billingId;
+  //     console.log(this.billingId);
   //   });
   // }
 
@@ -63,7 +66,7 @@ export class ProductComponent implements OnInit {
       this.newSubscription.productId = id;
       this.newSubscription.product = this.product;
       this.newSubscription.status = "active";
-      this.newSubscription.billingId = 1;
+      this.newSubscription.billingId = this.billingId;
       this.newSubscription.userId = this.auth.user.userId;
       this.newSubscription.dataStart = this.getStartDate();
       this.newSubscription.dataEnd = this.getEndDate();
