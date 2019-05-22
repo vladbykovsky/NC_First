@@ -47,10 +47,11 @@ export class ProductComponent implements OnInit {
     }else {
       this.router.navigate(['error']);
     }
-
-    this.billingAccountService.getBillingByUserId(this.auth.user.userId).subscribe(value => {
-      this.billingId = value.billingId;
-    })
+    if(this.auth.user){
+      this.billingAccountService.getBillingByUserId(this.auth.user.userId).subscribe(value => {
+        this.billingId = value.billingId;
+      })
+    }
   }
 
 

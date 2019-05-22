@@ -6,6 +6,7 @@ import {Subscription} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {AuthService} from "../login/service/auth.service";
 import {Router} from "@angular/router";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-registration',
@@ -25,17 +26,13 @@ export class RegistrationComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.userAccount.rolesByRoleId.roleId = '1';
   }
 
-  public _addUserAccount(): void {
+  public addUserAccount(): void {
     this.subscriptions.push(this.userAccountService.saveUserAccount(this.userAccount).subscribe(()=>{
       // this.userAccount = new UserAccount();
       this.router.navigate(['/login'])
     }));
   }
-
-  public setRole(role: string): void{
-    this.userAccount.rolesByRoleId.roleId = role;
-  }
-
 }

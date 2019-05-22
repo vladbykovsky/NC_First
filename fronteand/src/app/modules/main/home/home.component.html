@@ -13,7 +13,7 @@
   <div class="col-md-4">
   </div>
   <div class="col-md-3">
-    <input class="form-control" type="text" placeholder="Search" aria-label="Search" [(ngModel)]="searchName">
+    <input class="form-control" type="text" placeholder="Поиск" aria-label="Search" [(ngModel)]="searchName">
   </div>
   <div class="col-md-1">
     <a class="btn btn-outline-dark" href="#" (click)="searchProduct()">Поиск</a>
@@ -21,34 +21,31 @@
   <div class="col-md-1">
     <a class="btn btn-outline-dark" href="#" (click)="rebootProduct()">Сброс</a>
   </div>
-  <div class="col-md-1">
-    <div class="dropdown">
-      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Показывать по
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#" (click)="setSort('name')">Имени</a>
-        <a class="dropdown-item" href="#" (click)="setSort('price')">Цене</a>
-        <a class="dropdown-item" href="#" (click)="setSort('productId')">По новизне</a>
-      </div>
-    </div>
+</div>
+<div class="row my-search-filter">
+  <div class="col-md-4"></div>
+  <div class="col-md-2">
+    <a class="text-dark btn">Сортировать по</a>
+    <select name="sort"
+            [(ngModel)]="sort" (ngModelChange)="loadProducts()" class="form-control">
+      <option value="name">Имени</option>
+      <option value="price">Цене</option>
+      <option value="productId" selected>Новизне</option>
+    </select>
   </div>
-  <div class="col-md-1">
-    <div class="dropdown">
-      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Сортировать по
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a *ngIf="sort == 'price'" class="dropdown-item" href="#" (click)="setOrder('low')">Дешевле-Дороже</a>
-        <a *ngIf="sort == 'price'" class="dropdown-item" href="#" (click)="setOrder('high')">Дороже-Дешевле</a>
+  <div class="col-md-2">
+    <a class="text-dark btn">Порядок</a>
+    <select name="order"
+            [(ngModel)]="order" (ngModelChange)="loadProducts()" class="form-control">
+      <option *ngIf="sort == 'price'" value="low">Дешевле-Дороже</option>
+      <option *ngIf="sort == 'price'" value="high">Дороже-Дешевле</option>
 
-        <a *ngIf="sort == 'name'" class="dropdown-item" href="#" (click)="setOrder('low')">А-Я</a>
-        <a *ngIf="sort == 'name'" class="dropdown-item" href="#" (click)="setOrder('high')">Я-А</a>
+      <option *ngIf="sort == 'name'" value="low">А-Я</option>
+      <option *ngIf="sort == 'name'" value="high">Я-А</option>
 
-        <a *ngIf="sort == 'productId'" class="dropdown-item" href="#" (click)="setOrder('low')">Старые-Новые</a>
-        <a *ngIf="sort == 'productId'" class="dropdown-item" href="#" (click)="setOrder('high')">Новые-Старые</a>
-      </div>
-    </div>
+      <option *ngIf="sort == 'productId'" value="low">Старые-Новые</option>
+      <option *ngIf="sort == 'productId'" value="high">Новые-Старые</option>
+    </select>
   </div>
 </div>
 
@@ -75,15 +72,22 @@
       <a class="page-link" href="#" (click)="goPage(i)">{{i+1}}</a></li>
     <li *ngIf="page!==totalPages.length-1" class="page-item">
       <a class="page-link" href="#" (click)="goNext(page)">След.</a></li>
-    <div class="dropdown" style="margin-left: 10px">
-      <button class="text-dark btn dropdown-toggle" type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Показывать по:
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#" (click)="setSize(1)">1</a>
-        <a class="dropdown-item" href="#" (click)="setSize(2)">2</a>
-        <a class="dropdown-item" href="#" (click)="setSize(4)">4</a>
-      </div>
-    </div>
+    <!--<div class="dropdown" style="margin-left: 10px">-->
+      <!--<button class="text-dark btn dropdown-toggle" type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+        <!--Показывать по:-->
+      <!--</button>-->
+      <!--<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+        <!--<a class="dropdown-item" href="#" (click)="setSize(1)">1</a>-->
+        <!--<a class="dropdown-item" href="#" (click)="setSize(2)">2</a>-->
+        <!--<a class="dropdown-item" href="#" (click)="setSize(4)">4</a>-->
+      <!--</div>-->
+    <!--</div>-->
+    <a class="text-dark btn">Кол-во на странце</a>
+    <select name="pageSize"
+            [(ngModel)]="size" (ngModelChange)="loadProducts()" class="form-control" style="width: 200px">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="4" selected>4</option>
+    </select>
   </ul>
 </nav>

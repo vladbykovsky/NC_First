@@ -46,17 +46,18 @@
           <p [hidden]="address.valid || address.untouched" class="text-danger">Неверный адрес</p>
         </div>
         <div>
-          <label>Роль</label>
-          <select class="form-control">
-            <option>Пользователь</option>
-            <option (click)="setRole('3')">Админ</option>
+          <label for="role">Роль</label>
+          <select id="role" name="role"
+                  [(ngModel)]="userAccount.rolesByRoleId.roleId" class="form-control">
+            <option value="1" selected>Пользователь</option>
+            <option value="3">Админ</option>
           </select>
         </div>
 
 
         <hr class="mb-4">
       <button class="btn btn-dark btn-lg btn-block" type="submit" routerLink=""
-              [disabled]="name.invalid || surname.invalid || password.invalid || email.invalid || login.invalid || address.invalid" (click)="_addUserAccount()">Зарегистрироваться</button>
+              [disabled]="name.invalid || surname.invalid || password.invalid || email.invalid || login.invalid || address.invalid" (click)="addUserAccount()">Зарегистрироваться</button>
       </form>
     </div>
   </div>
