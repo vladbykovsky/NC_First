@@ -2,11 +2,16 @@
   <form class="form-signin" >
     <h1 class="h3 mb-3 font-weight-normal">Вход</h1>
     <label class="sr-only">Логин</label>
-    <input class="form-control" style="margin-bottom: 10px" placeholder="Логин" name="name" [(ngModel)]="user.login" required/>
+    <input class="form-control" style="margin-bottom: 10px" placeholder="Логин" name="name"
+           [(ngModel)]="user.login" #login="ngModel" required minlength="4">
+    <p [hidden]="login.valid || login.untouched" class="text-danger">Неверный логин</p>
     <label class="sr-only">Пароль</label>
     <!--<input type="password" id="inputPassword" class="form-control" placeholder="Пароль" required="">-->
-    <input class="form-control" style="margin-bottom: 20px" placeholder="Пароль" name="password" type="password" [(ngModel)]="user.password" required/>
-    <button class="btn btn-lg btn-dark btn-block" type="submit" (click)="loginUser()">Войти</button>
+    <input class="form-control" style="margin-bottom: 20px" placeholder="Пароль" name="password" type="password"
+           [(ngModel)]="user.password" #password="ngModel" required minlength="6">
+    <p [hidden]="password.valid || password.untouched" class="text-danger">Неверный пароль</p>
+    <button class="btn btn-lg btn-dark btn-block" type="submit"
+            [disabled]="password.invalid || login.invalid" (click)="loginUser()">Войти</button>
   </form>
 </div>
 

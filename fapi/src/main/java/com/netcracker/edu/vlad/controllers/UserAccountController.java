@@ -19,7 +19,6 @@ public class UserAccountController {
     @Autowired
     private UserAccountService userAccountService;
 
-//    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
     public List<User> getAllUsers(){
         return userAccountService.findAll();
