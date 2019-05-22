@@ -10,7 +10,6 @@
       <th>Почта</th>
       <th>Адрес</th>
       <th>Роль</th>
-      <!--<th>Редактировать</th>-->
       <th>Удалить</th>
     </tr>
     <tr *ngFor="let user of users">
@@ -21,12 +20,8 @@
       <td>{{user.email}}</td>
       <td>{{user.address}}</td>
       <td>{{user.rolesByRoleId.name}}</td>
-      <!--<td><button type="button" class="btn btn-dark" (click)="editUsers()">Редактировать</button></td>-->
       <td><button type="button" class="btn btn-danger" (click)="deleteUser(user.userId)">Удалить</button></td>
     </tr>
     </tbody>
   </table>
-  <div class="text-center">
-    <button class="btn btn-dark" type="button" routerLink="/registration">Добавить</button>
-  </div>
 </div>

@@ -24,6 +24,7 @@ import {TokenStorage} from "./modules/main/login/token.storage";
 import {Interceptor} from "./app.interceptor";
 import { FooterComponent } from './modules/footer/footer.component';
 import { ErrorComponent } from './modules/error/error.component';
+import {BillingAccountService} from "./modules/accounts/billing-account/billing-account.service";
 
 const appRoutes: Routes = [
   {path: '', component:HomeComponent},

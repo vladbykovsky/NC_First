@@ -16,24 +16,28 @@ import {BillingAccount} from "../billing-account/models/billing-account.model";
 export class UserAccountComponent implements OnInit {
 
   public userAccount : UserAccount;
+  public ba: BillingAccount
 
   constructor(
     private userAccountService : UserAccountService,
-    //private baService: BillingAccountService,
+    private baService: BillingAccountService,
     private activateRoute: ActivatedRoute,
     private router: Router,
     private token: TokenStorage,
     private auth: AuthService
-    //private ba: BillingAccount
   ) {}
 
   ngOnInit() {
     this.userAccountService.getUserByLogin(this.auth.user.login).subscribe((value:UserAccount) => {
       this.userAccount = value;
     });
-    //this.baService.getBillingByUserId(this.auth.user.userId).subscribe((value:BillingAccount) => {
-      //this.ba = value;
-    //});
+    if (this.auth.user){
+      this.baService.getBillingByUserId(this.auth.user.userId).subscribe((value:BillingAccount) => {
+        if (value){
+          this.ba = value;
+        }
+      }, error1 => {});
+    }
   }
 
   signOut(): void{
