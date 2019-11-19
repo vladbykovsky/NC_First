@@ -1,0 +1,31 @@
+<div class="container">
+  <div *ngIf="subscription" class="row">
+    <div class="col-12 text-center"><h2>Мои подписки</h2></div>
+    <table class="table table-striped table-condensed table-bordered">
+      <tbody>
+      <tr>
+        <th>Название</th>
+        <th>Категория</th>
+        <th>Дата начала</th>
+        <th>Дата окончания</th>
+        <th>Цена</th>
+        <th>Статус</th>
+        <th>Продлить</th>
+        <th>Удалить</th>
+      </tr>
+      <tr *ngFor="let sub of subscription">
+        <td>{{sub.product.name}}</td>
+        <td>{{sub.product.category}}</td>
+        <td>{{sub.dataStart}}</td>
+        <td>{{sub.dataEnd}}</td>
+        <td>{{sub.product.price}}$</td>
+        <td *ngIf=" sub.status == 'active' " class="text-center" style="background-color: #2cdb07">{{sub.status}}</td>
+        <td *ngIf=" sub.status == 'block' " class="text-center" style="background-color: #ff0012">{{sub.status}}</td>
+
+        <td><button class="btn btn-dark" type="submit" [routerLink]="['/product/', sub.product.productId]">Продлить</button></td>
+        <td><button class="btn btn-danger" type="button" (click)="deleteSub(sub.subscribeId)" >Удалить</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

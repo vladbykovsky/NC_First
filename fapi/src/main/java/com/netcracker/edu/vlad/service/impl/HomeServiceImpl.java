@@ -21,6 +21,13 @@ public class HomeServiceImpl implements HomeService {
                 + "&size=" + size + "&sort=" + sort + "&order=" + order, RestPageImpl.class);
     }
 
+//    @Override
+//    public Page<Product> findAll(int page, String sort, String order) {
+//        RestTemplate restTemplate = new RestTemplate();
+//        return restTemplate.getForObject(backendServerUrl + "/api?page=" + page
+//                +"&sort=" + sort + "&order=" + order, RestPageImpl.class);
+//    }
+
     @Override
     public Product findAllByNameStartWith(String name) {
         RestTemplate restTemplate = new RestTemplate();

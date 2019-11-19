@@ -13,4 +13,5 @@ public interface SubscriptionRepository extends CrudRepository<Subscription, Int
     Optional<Subscription> findByUserId(int id);
     List<Subscription> getSubscriptionsByUserId(int id);
 
+
 }

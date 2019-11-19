@@ -1,0 +1,19 @@
+.row{
+  max-width: 1024px;
+  margin: auto;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  background-color: #D8F7FF;
+}
+.container{
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: white;
+}
+.btn{
+  margin-right: 12px;
+  margin-left: 12px;
+}
+.my-data{
+  padding-top: 20px;
+}

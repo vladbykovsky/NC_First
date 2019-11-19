@@ -35,6 +35,18 @@ public class HomeController {
         }
     }
 
+//    @RequestMapping(value = "", method = RequestMethod.GET)
+//    public ResponseEntity<Page<Product>> getAllProducts(@RequestParam int page,
+//                                                        @RequestParam String sort,
+//                                                        @RequestParam String order){
+//        Page<Product> products = homeService.findAll(page, sort, order);
+//        if (products.getContent() != null) {
+//            return ResponseEntity.ok(products);
+//        }else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
+
     @RequestMapping(value = "/search/{name}", method = RequestMethod.GET)
     public Product getAllByName(@PathVariable(name = "name") String name){
         return homeService.findAllByNameStartWith(name);

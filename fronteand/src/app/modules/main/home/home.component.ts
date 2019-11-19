@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
     })
   }
 
+
   public goPage(page: number):void{
     this.page = page;
     this.loadProducts();

@@ -28,6 +28,7 @@ export class RegistrationComponent implements OnInit {
   ngOnInit() {
     this.userAccount.rolesByRoleId.roleId = '1';
   }
+  
 
   public addUserAccount(): void {
     this.subscriptions.push(this.userAccountService.saveUserAccount(this.userAccount).subscribe(()=>{
